@@ -1,5 +1,8 @@
 ;;;------------------------------------
 ;;; Tested on Emacs 23
+;;;
+;;; Aims to work with terminal simulator, no emacs gui
+;;;
 ;;;------------------------------------
 
 
@@ -44,13 +47,16 @@
 ; enable "Which function mode". It will show you which function cursor is in
 (which-function-mode 1)
 
+; set font type & size
+'(default ((t (:height 120 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
+
 ;;------------------------------------
 ;; Key bindings
 ;;------------------------------------
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; replace "list-buffers" with "ibuffer"
 (global-set-key (kbd "<f8>") 'execute-extended-command) ; bind with 'M-x' by default
-(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
+;(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "<f4>") 'undo)
