@@ -22,11 +22,12 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; replace "list-buffers" with "ibuffer"
 (global-set-key (kbd "<f8>") 'execute-extended-command) ; bind with 'M-x' by default
-(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code (stackoverflow)
+(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
-(global-set-key (kbd "<f5>") 'undo)
-(global-set-key (kbd "<f4>") 'yank)
+(global-set-key (kbd "<f4>") 'undo)
+(global-set-key (kbd "<f5>") 'yank)
+(global-set-key (kbd "<f6>") 'kill-region)
 
 
 ;;------------------------------------
