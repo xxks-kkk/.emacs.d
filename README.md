@@ -15,7 +15,7 @@ Explanation
 Installation
 ============
 
-git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d
+``git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d``
 
 
 
