@@ -1,6 +1,34 @@
+;;;------------------------------------
+;;; Tested on Emacs 23
+;;;------------------------------------
+
+
 ;;------------------------------------
 ;; Emacs System
 ;;------------------------------------
+
+; load package.el for emacs version lower than 24
+(when (< emacs-major-version 24)
+    (load
+      (expand-file-name "~/.emacs.d/package.el")
+    )
+)
+(require 'package) ; import package
+(add-to-list 'package-archives
+              '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+   ;; For important compatibility libraries like cl-lib
+   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ; initialize package
+
+
+; use color-theme package (http://www.nongnu.org/color-theme/)
+(add-to-list 'load-path "~/.emacs.d/color-theme.el")
+(require 'color-theme)
+(eval-after-load "color-theme"
+   '(progn
+            (color-theme-initialize)
+                 (color-theme-hober)))
 
 ; Start emacs ido mode on default
 (setq ido-enable-flex-matching t)
@@ -42,3 +70,7 @@
 (defalias 'list-buffers 'ibuffer) ; always use ibuffer
 (defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
 (defalias 'rb 'revert-buffer)
+
+
+
+
