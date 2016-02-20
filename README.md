@@ -11,12 +11,12 @@ List of files
 Explanation
 ===========
 
-Resources
-=========
 
-A collection of emacs configuration repos I found on github:
+Installation
+============
 
-- [caesar0301/emacs-config](https://github.com/caesar0301/emacs-config)
+git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d
+
 
 
 
