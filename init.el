@@ -2,7 +2,8 @@
 ;;; Tested on Emacs 23
 ;;;
 ;;; Aims to work with terminal simulator, no emacs gui
-;;;
+;;; 
+;;; 
 ;;;------------------------------------
 
 
@@ -29,6 +30,17 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+; Disable menu bar
+(menu-bar-mode -1)
+
+; Disable tool bar
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+
+; Disable scroll bar
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+
 ; auto show completions for execute-extended-command
 (icomplete-mode 1)
 
@@ -42,7 +54,11 @@
 '(default ((t (:height 120 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
 
 ; kepp a list of recently opened files
-(recentf-mode 1);
+(recentf-mode 1)
+
+; highlights the matching pair when the point is over parentheses
+(show-paren-mode 1)
+
 
 ;;------------------------------------
 ;; Key bindings
