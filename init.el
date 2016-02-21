@@ -50,6 +50,9 @@
 ; set font type & size
 '(default ((t (:height 120 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
 
+; kepp a list of recently opened files
+(recentf-mode 1);
+
 ;;------------------------------------
 ;; Key bindings
 ;;------------------------------------
@@ -76,7 +79,7 @@
 (defalias 'list-buffers 'ibuffer) ; always use ibuffer
 (defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
 (defalias 'rb 'revert-buffer)
-
+(defalias 'rof 'recentf-open-files) ; list recently opened files
 
 
 
