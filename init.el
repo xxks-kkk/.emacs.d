@@ -59,6 +59,8 @@
 ; highlights the matching pair when the point is over parentheses
 (show-paren-mode 1)
 
+; deactive tabs to be used for indentation (force myself to use space for indentation)
+(setq-default indent-tabs-mode nil)
 
 ;;------------------------------------
 ;; Key bindings
@@ -93,5 +95,5 @@
 ;;----------------------------------
 
 (require 'cc-mode)
-(setq c-default-style "bsd")
+(setq c-default-style "bsd"); DB2 coding style
 
