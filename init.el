@@ -24,15 +24,6 @@
    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ; initialize package
 
-
-; use color-theme package (http://www.nongnu.org/color-theme/)
-(add-to-list 'load-path "~/.emacs.d/color-theme.el")
-(require 'color-theme)
-(eval-after-load "color-theme"
-   '(progn
-            (color-theme-initialize)
-                 (color-theme-hober)))
-
 ; Start emacs ido mode on default
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
