@@ -88,5 +88,10 @@
 (defalias 'rb 'revert-buffer)
 (defalias 'rof 'recentf-open-files) ; list recently opened files
 
+;;----------------------------------
+;; CC modes (C, C++, Java)
+;;----------------------------------
 
+(require 'cc-mode)
+(setq c-default-style "bsd")
 
