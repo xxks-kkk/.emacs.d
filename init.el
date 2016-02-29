@@ -51,7 +51,8 @@
 (which-function-mode 1)
 
 ; set font type & size
-'(default ((t (:height 120 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
+'(default ((t (:height 140 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
+(set-face-attribute 'default nil :height 160)
 
 ; kepp a list of recently opened files
 (recentf-mode 1)
@@ -93,6 +94,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
 (defalias 'rb 'revert-buffer)
 (defalias 'rof 'recentf-open-files) ; list recently opened files
+(defalias 'cy 'clipboard-yank); copy the text from clipboard
+(defalias 'ck 'clipboard-kill-region); copy the text to clipboard
 
 ;;----------------------------------
 ;; CC modes (C, C++, Java)
