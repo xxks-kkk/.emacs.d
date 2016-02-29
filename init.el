@@ -1,9 +1,9 @@
 ;;;------------------------------------
 ;;; Tested on Emacs 23
 ;;;
-;;; Aims to work with terminal simulator, no emacs gui
-;;; 
-;;; 
+;;; Aims to maximize the productivity
+;;; while minimize the package to be installed 
+;;; and configuration steps
 ;;;------------------------------------
 
 
@@ -61,6 +61,10 @@
 
 ; deactive tabs to be used for indentation (force myself to use space for indentation)
 (setq-default indent-tabs-mode nil)
+
+;; make whitespace-mode use just basic coloring
+(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+
 
 ;;------------------------------------
 ;; Key bindings
