@@ -1,11 +1,20 @@
 ;;;------------------------------------
-;;; Tested on Emacs 23
+;;; Tested on Emacs 23.1
 ;;;
 ;;; Aims to maximize the productivity
 ;;; while minimize the package to be installed 
 ;;; and configuration steps
 ;;;------------------------------------
 
+
+;;;-----------------------------------
+;;; OS-Level Setup:
+;;;
+;;; 1. Change the cursor type to "block" for terminal simulator
+;;;    and set the color of cursor to #AF1212 (R:175, G:18, B:18)
+;;;
+;;;
+;;;-----------------------------------
 
 ;;------------------------------------
 ;; Emacs System
