@@ -20,7 +20,7 @@
 ;; Emacs System
 ;;------------------------------------
 
-; load package.el for emacs version lower than 24
+; Load package.el for emacs version lower than 24
 (when (< emacs-major-version 24)
     (load
       (expand-file-name "~/.emacs.d/package.el")
@@ -30,7 +30,7 @@
 (add-to-list 'package-archives
               '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
-   ;; For important compatibility libraries like cl-lib
+   ; For important compatibility libraries like cl-lib
    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ; initialize package
 
@@ -50,39 +50,39 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-; auto show completions for execute-extended-command
+; Auto show completions for execute-extended-command
 (icomplete-mode 1)
 
-; disable Emacs welcome screen
+; Disable Emacs welcome screen
 (setq inhibit-startup-message t)
 
-; enable "Which function mode". It will show you which function cursor is in
+; Enable "Which function mode". It will show you which function cursor is in
 (which-function-mode 1)
 
-; set font type & size
+; Set font type & size
 '(default ((t (:height 140 :family "DejaVu Sans Mono")))) ;notice, the value is in 1/10pt, so 120 will be 12pt
 (set-face-attribute 'default nil :height 160)
 
-; kepp a list of recently opened files
+; Keep a list of recently opened files
 (recentf-mode 1)
 
-; highlights the matching pair when the point is over parentheses
+; Highlights the matching pair when the point is over parentheses
 (show-paren-mode 1)
 
-; deactive tabs to be used for indentation (force myself to use space for indentation)
+; Deactive tabs to be used for indentation (force myself to use space for indentation)
 (setq-default indent-tabs-mode nil)
 
-;; make whitespace-mode use just basic coloring
+; Make whitespace-mode use just basic coloring
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
-; differentiate two names when files are the same
+; Differentiate two names when files are the same
 (require 'uniquify)
 (custom-set-variables
  '(delete-selection-mode nil)
  '(scroll-bar-mode (quote right))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
-; forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
