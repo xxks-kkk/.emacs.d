@@ -75,6 +75,17 @@
 ;; make whitespace-mode use just basic coloring
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
 
+; differentiate two names when files are the same
+(require 'uniquify)
+(custom-set-variables
+ '(delete-selection-mode nil)
+ '(scroll-bar-mode (quote right))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
+; forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
+
 
 ;;------------------------------------
 ;; Key bindings
