@@ -86,6 +86,10 @@
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(defun auto-complete-mode-maybe ()
+ (auto-complete-mode 1))
 
 ;;------------------------------------
 ;; Key bindings
