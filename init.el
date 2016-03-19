@@ -86,6 +86,7 @@
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
+; Activates the auto-comple mode and enable AC mode everywhere
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (defun auto-complete-mode-maybe ()
