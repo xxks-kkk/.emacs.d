@@ -1,5 +1,5 @@
 ;;;------------------------------------
-;;; Tested on Emacs 23.1
+;;; Tested on Emacs 23.1, 24.3.1
 ;;;
 ;;; Aims to maximize the productivity
 ;;; while minimize the package to be installed 
@@ -38,6 +38,9 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+; use graphviz-dot-mode
+(add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))
 
 ; Disable menu bar
 (menu-bar-mode -1)
@@ -127,5 +130,6 @@
 ;;----------------------------------
 
 (require 'cc-mode)
-(setq c-default-style "bsd"); DB2 coding style
+(setq c-default-style "bsd"
+      c-basic-offset 2); DB2 coding style
 
