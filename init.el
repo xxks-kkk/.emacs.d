@@ -126,6 +126,14 @@
 (defalias 'ck 'clipboard-kill-region); copy the text to clipboard
 
 ;;----------------------------------
+;; Global modes setting
+;;----------------------------------
+
+; Please uncomment the following block if you want to turn off electric-indent-mode globally
+;(when (fboundp 'electric-indent-mode) 
+;   (electric-indent-mode -1))
+
+;;----------------------------------
 ;; CC modes (C, C++, Java)
 ;;----------------------------------
 
