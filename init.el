@@ -133,3 +133,13 @@
 (setq c-default-style "bsd"); DB2 coding style
 (setq-default c-basic-offset 2)
 
+;;----------------------------------
+;; Perl
+;;----------------------------------
+
+(setq perl-indent-level 2)
+
+; turn off auto indentation (electric-indent-mode) for perl
+(defun perl-mode-disable-auto-indent()
+ (electric-indent-mode -1))
+(add-hook 'perl-mode-hook 'perl-mode-disable-auto-indent)
