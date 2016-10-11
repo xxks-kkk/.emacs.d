@@ -20,8 +20,9 @@
 ;; Emacs System
 ;;------------------------------------
 
-; Want Emacs to automatically run a server on startup
-(server-start)
+; Want Emacs to automatically run a server on startup if it's not running
+(load "server")
+(unless (server-running-p) (server-start))
 
 ; Load package.el for emacs version lower than 24
 (when (< emacs-major-version 24)
