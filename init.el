@@ -57,6 +57,12 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+; Enable default Wind Move keybindings
+; (i.e. S-right move point to the right window to the current frame)
+; note: this disable shift selection
+(when (fboudnp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
 
