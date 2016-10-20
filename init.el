@@ -60,7 +60,7 @@
 ; Enable default Wind Move keybindings
 ; (i.e. S-right move point to the right window to the current frame)
 ; note: this disable shift selection
-(when (fboudnp 'windmove-default-keybindings)
+(when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
 ; Auto show completions for execute-extended-command
