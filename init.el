@@ -46,6 +46,9 @@
 ; use graphviz-dot-mode
 (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))
 
+; load the theme
+(load-theme 'manoj-dark)
+
 ; Disable menu bar
 (menu-bar-mode -1)
 
