@@ -1,5 +1,5 @@
 auto-save-list/
 *~
 *.elc
-ac-comphist.dat
 bookmarks
+/ac-comphist.dat
