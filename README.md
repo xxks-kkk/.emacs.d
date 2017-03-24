@@ -1,6 +1,5 @@
-===================
-Emacs Configuration
-===================
+# Emacs Configuration
+
 
 Given a certain level of usability, this emacs configuration aims to provide minimal set of config files, plugins, commands
 with maximum amount of portability, stability, and scalability.
@@ -9,10 +8,9 @@ By maximum amount of portability, I mean to avoid external package installation 
 systems and different versions of emacs may hinder the portability of this configuration.
 
 
-Installation
-============
+## Installation
 
-``git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d``
+`git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d`
 
 
 
