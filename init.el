@@ -88,7 +88,8 @@
 (define-globalized-minor-mode my-global-fci-mode fci-mode
     (lambda () (fci-mode 1)))
 (my-global-fci-mode 1)
-(setq fci-rule-column 43) ;line is set to be mobile-friendly code browsing
+;set 43 to be mobile-friendly code browsing
+(setq fci-rule-column 80) 
 
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
