@@ -20,6 +20,15 @@
 ;; Emacs System
 ;;------------------------------------
 
+;; Mac specific setup
+(cond
+ ((string-equal system-type "darwin") ; mac OSX
+  ;; We want to emacs able to find 'gdb' under $HOME/bin (i.e. /Users/zeyuan/bin)
+  ;; the 'gdb' under 'bin' is a symbolic soft link to the 'ggdb', which is gdb installed via macports
+  (setenv "PATH" "/Users/zeyuan/bin:$PATH" t)
+  (add-to-list 'exec-path "/Users/zeyuan/bin")
+  ))
+
 ; Want Emacs to automatically run a server on startup if it's not running
 (load "server")
 (unless (server-running-p) (server-start))
@@ -47,7 +56,7 @@
 (ido-mode 1)
 
 ; use graphviz-dot-mode
-(add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))
+(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
 
 ; load the theme
 (load-theme 'manoj-dark)
