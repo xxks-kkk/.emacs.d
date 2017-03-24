@@ -24,6 +24,9 @@
 (load "server")
 (unless (server-running-p) (server-start))
 
+;; Tell emacs where is your personal elisp lib dir
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+
 ; Load package.el for emacs version lower than 24
 (when (< emacs-major-version 24)
     (load
@@ -65,6 +68,18 @@
 ; note: this disable shift selection
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
+
+; Enable the 80 column rule
+(load "fill-column-indicator") ;; best not to include the ending ".el" or ".elc"
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "darkblue")
+;; Enable this minor mode globally
+;; (https://www.emacswiki.org/emacs/FillColumnIndicator#toc5)
+(define-globalized-minor-mode my-global-fci-mode fci-mode
+    (lambda () (fci-mode 1)))
+(my-global-fci-mode 1)
+(setq fci-rule-column 43) ;line is set to be mobile-friendly code browsing
 
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
@@ -193,3 +208,4 @@
 (defun perl-mode-disable-auto-indent()
  (electric-indent-mode -1))
 (add-hook 'perl-mode-hook 'perl-mode-disable-auto-indent)
+(put 'dired-find-alternate-file 'disabled nil)
