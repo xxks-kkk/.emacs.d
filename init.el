@@ -137,10 +137,11 @@
 (setq initial-scratch-message "")
 
 ;; Removes *scratch* from buffer after the mode has been set.
-(defun remove-scratch-buffer ()
-  (if (get-buffer "*scratch*")
-      (kill-buffer "*scratch*")))
-(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+;; COMMENT OUT: due to "selecting deleted buffer" error when using "M-x rof"
+;; (defun remove-scratch-buffer ()
+;;   (if (get-buffer "*scratch*")
+;;       (kill-buffer "*scratch*")))
+;; (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 
 ;; Removes *messages* from the buffer.
 ;;(setq-default message-log-max nil)
