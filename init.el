@@ -20,6 +20,7 @@
 ;; Emacs System
 ;;------------------------------------
 
+
 ;; Mac specific setup
 (cond
  ((string-equal system-type "darwin") ; mac OSX
@@ -54,6 +55,13 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+; activation org mode
+; Ref: http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
 
 ; use graphviz-dot-mode
 (add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
@@ -220,3 +228,4 @@
  (electric-indent-mode -1))
 (add-hook 'perl-mode-hook 'perl-mode-disable-auto-indent)
 (put 'dired-find-alternate-file 'disabled nil)
+
