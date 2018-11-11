@@ -175,6 +175,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; replace "list-buffers" with "ibuffer"
 (global-set-key (kbd "<f8>") 'execute-extended-command) ; bind with 'M-x' by default
+(global-set-key (kbd "<f7>") 'neotree-toggle)
 ;(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
@@ -228,4 +229,3 @@
  (electric-indent-mode -1))
 (add-hook 'perl-mode-hook 'perl-mode-disable-auto-indent)
 (put 'dired-find-alternate-file 'disabled nil)
-
