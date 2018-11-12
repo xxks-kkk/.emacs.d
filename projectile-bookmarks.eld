@@ -1,0 +1,1 @@
+("~/Documents/projects/strata/" "~/.emacs.d/")

@@ -20,6 +20,8 @@
 ;; Emacs System
 ;;------------------------------------
 
+(setenv "PATH" (concat ".:/usr/local/bin" (getenv "PATH")))
+(add-to-list 'exec-path "/usr/local/bin/")
 
 ;; Mac specific setup
 (cond
@@ -29,6 +31,12 @@
   (setenv "PATH" "/Users/zeyuan/bin:$PATH" t)
   (add-to-list 'exec-path "/Users/zeyuan/bin")
   ))
+
+;; set keys for Apple keyboard, for emacs in OS X
+(setq mac-command-modifier 'meta) ; make cmd key do Meta
+(setq mac-option-modifier 'super) ; make opt key do Super
+(setq mac-control-modifier 'control) ; make Control key do Control
+(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
 
 ; Want Emacs to automatically run a server on startup if it's not running
 (load "server")
@@ -127,7 +135,14 @@
 ; Differentiate two names when files are the same
 (require 'uniquify)
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
+ '(package-selected-packages
+   (quote
+    (projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
  '(scroll-bar-mode (quote right))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
@@ -229,3 +244,34 @@
  (electric-indent-mode -1))
 (add-hook 'perl-mode-hook 'perl-mode-disable-auto-indent)
 (put 'dired-find-alternate-file 'disabled nil)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;----------------------------------
+;; Plugins configuration
+;;----------------------------------
+
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
+
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+                            (ggtags-mode 1))))
+
+(define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+(define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+(define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+(define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+(define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+
+(define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
