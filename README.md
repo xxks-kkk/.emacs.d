@@ -10,7 +10,9 @@ systems and different versions of emacs may hinder the portability of this confi
 
 ## Installation
 
-`git clone git@github.com:xxks-kkk/emacs-config.git ~/.emacs.d`
+```
+git clone https://github.com/xxks-kkk/emacs-config.git ~/.emacs.d
+```
 
 
 
