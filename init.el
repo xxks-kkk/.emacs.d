@@ -142,7 +142,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
+    (dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
  '(scroll-bar-mode (quote right))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
@@ -195,8 +195,8 @@
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "<f4>") 'undo)
-(global-set-key (kbd "<f5>") 'yank)
-(global-set-key (kbd "<f6>") 'kill-region)
+;; (global-set-key (kbd "<f5>") 'yank)
+;; (global-set-key (kbd "<f6>") 'kill-region)
 
 
 ;;------------------------------------
@@ -257,4 +257,7 @@
 ;;----------------------------------
 
 
-
+(dumb-jump-mode 1)
+(setq dumb-jump-prefer-searcher 'ag)
+(global-set-key (kbd "<f5>") 'dumb-jump-go)
+(global-set-key (kbd "<f6>") 'dumb-jump-back)
