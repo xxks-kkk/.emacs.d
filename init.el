@@ -261,3 +261,10 @@
 (setq dumb-jump-prefer-searcher 'ag)
 (global-set-key (kbd "<f5>") 'dumb-jump-go)
 (global-set-key (kbd "<f6>") 'dumb-jump-back)
+
+(require 'ssh)
+(add-hook 'ssh-mode-hook
+          (lambda ()
+            (setq ssh-directory-tracking-mode t)
+            (shell-dirtrack-mode t)
+            (setq dirtrackp nil)))
