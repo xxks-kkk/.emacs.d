@@ -59,6 +59,10 @@
    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ; initialize package
 
+;; Enable use-package
+(eval-when-compile
+  (require 'use-package))
+
 ; Start emacs ido mode on default
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -142,7 +146,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (auto-complete-c-headers yasnippet-classic-snippets yasnippet-snippets yasnippet dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
+    (use-package flycheck auto-complete-c-headers yasnippet-classic-snippets yasnippet-snippets yasnippet dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
  '(scroll-bar-mode (quote right))
  '(template-use-package t nil (template))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
@@ -203,11 +207,7 @@
 ;; Show only one active window when opening multiple files at the same time.
 (add-hook 'window-setup-hook 'delete-other-windows)
 
-;;----------------------------------
-;; Plugins configuration
-;;----------------------------------
-
-
+; enable dumb-jump-mode
 (dumb-jump-mode 1)
 (setq dumb-jump-prefer-searcher 'ag)
 
@@ -222,7 +222,10 @@
 ;;         ))
 (yas-global-mode 1)
 
-
+; enable flycheck
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
 ;;------------------------------------
 ;; Key bindings
