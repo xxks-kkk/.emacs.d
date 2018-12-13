@@ -148,7 +148,6 @@
    (quote
     (use-package flycheck auto-complete-c-headers yasnippet-classic-snippets yasnippet-snippets yasnippet dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
  '(scroll-bar-mode (quote right))
- '(template-use-package t nil (template))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
@@ -226,6 +225,10 @@
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
+
+; enable flycheck-rust
+(with-eval-after-load 'rust-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;;------------------------------------
 ;; Key bindings
