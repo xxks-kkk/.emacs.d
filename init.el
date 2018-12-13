@@ -1,5 +1,5 @@
 ;;;------------------------------------
-;;; Tested on Emacs 23.1, 24.3.1
+;;; Tested on Emacs 23.1, 24.3.1, 26.3
 ;;;
 ;;; Aims to maximize the productivity
 ;;; while minimize the package to be installed 
@@ -78,7 +78,7 @@
 (load-theme 'manoj-dark)
 
 ; Disable menu bar
-(menu-bar-mode -1)
+; (menu-bar-mode -1)
 
 ; Disable tool bar
 (when (fboundp 'tool-bar-mode)
@@ -142,19 +142,39 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
+    (auto-complete-c-headers yasnippet-classic-snippets yasnippet-snippets yasnippet dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
  '(scroll-bar-mode (quote right))
+ '(template-use-package t nil (template))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 
-; Activates the auto-comple mode and enable AC mode everywhere
+;; ; Activates the auto-comple mode and enable AC mode everywhere
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (defun auto-complete-mode-maybe ()
  (auto-complete-mode 1))
+(require 'auto-complete-config)
+(ac-config-default)
+
+; let's define a function which intializes auto-complete-c-headers and gets
+; called for c/c++ hooks
+(defun my:ac-c-headers-init ()
+(require 'auto-complete-c-headers)
+  (add-to-list 'ac-sources 'ac-source-c-headers)
+  (setq achead:include-directories
+   (append '("/usr/include/c++/7"
+             "/usr/include/x86_64-linux-gnu/c++/7"
+             "/usr/include/c++/7/backward"
+             "/usr/lib/gcc/x86_64-linux-gnu/7/include"
+             "/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"
+             "/usr/include/x86_64-linux-gnu")
+             achead:include-directories)))
+
+(add-hook 'c++-mode-hook 'my:ac-c-headers-init)
+(add-hook 'c-mode-hook 'my:ac-c-headers-init)
 
 ;; Makes *scratch* empty.
 (setq initial-scratch-message "")
@@ -183,6 +203,26 @@
 ;; Show only one active window when opening multiple files at the same time.
 (add-hook 'window-setup-hook 'delete-other-windows)
 
+;;----------------------------------
+;; Plugins configuration
+;;----------------------------------
+
+
+(dumb-jump-mode 1)
+(setq dumb-jump-prefer-searcher 'ag)
+
+; neotree show hidden files
+(setq-default neo-show-hidden-files t)
+
+; yasnippet configuration
+(require 'yasnippet)
+; uncomment and set customized snippet location
+;; (setq yas-snippet-dirs
+;;       '("~/.emacs.d/elpa/yasnippet-snippets-20181211.2219/snippets"
+;;         ))
+(yas-global-mode 1)
+
+
 
 ;;------------------------------------
 ;; Key bindings
@@ -197,7 +237,8 @@
 (global-set-key (kbd "<f4>") 'undo)
 ;; (global-set-key (kbd "<f5>") 'yank)
 ;; (global-set-key (kbd "<f6>") 'kill-region)
-
+(global-set-key (kbd "<f5>") 'dumb-jump-go)
+(global-set-key (kbd "<f6>") 'dumb-jump-back)
 
 ;;------------------------------------
 ;; Make frequently used commands short
@@ -236,7 +277,7 @@
 ;;----------------------------------
 ;; Perl
 ;;----------------------------------
-
+;; 
 (setq perl-indent-level 2)
 
 ; turn off auto indentation (electric-indent-mode) for perl
@@ -251,20 +292,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;;----------------------------------
-;; Plugins configuration
-;;----------------------------------
-
-
-(dumb-jump-mode 1)
-(setq dumb-jump-prefer-searcher 'ag)
-(global-set-key (kbd "<f5>") 'dumb-jump-go)
-(global-set-key (kbd "<f6>") 'dumb-jump-back)
-
-(require 'ssh)
-(add-hook 'ssh-mode-hook
-          (lambda ()
-            (setq ssh-directory-tracking-mode t)
-            (shell-dirtrack-mode t)
-            (setq dirtrackp nil)))
