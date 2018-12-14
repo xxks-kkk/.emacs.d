@@ -14,15 +14,21 @@
 (global-set-key (kbd "<f5>") 'dumb-jump-go)
 (global-set-key (kbd "<f6>") 'dumb-jump-back)
 
-
 (defun toggle-comment-on-line ()
   "Comment or uncomment current line."
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
 
 ;;------------------------------------
 ;; Make frequently used commands short

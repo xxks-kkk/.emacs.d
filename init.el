@@ -37,15 +37,12 @@
 (require 'zeyuan-cpp)
 (require 'zeyuan-key-shortcuts)
 (require 'zeyuan-others)
+(require 'zeyuan-rust)
 
 ;; Enable use-package
 (eval-when-compile
   (require 'use-package))
 
-; Start emacs ido mode on default
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
 
 ; activation org mode
 ; Ref: http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
@@ -56,13 +53,6 @@
 
 ; use graphviz-dot-mode
 (add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
-
-
-; Enable default Wind Move keybindings
-; (i.e. S-right move point to the right window to the current frame)
-; note: this disable shift selection
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
 
 ; Enable the 80 column rule
 (load "fill-column-indicator") ;; best not to include the ending ".el" or ".elc"
@@ -124,14 +114,6 @@
 
 (add-hook 'c++-mode-hook 'my:ac-c-headers-init)
 (add-hook 'c-mode-hook 'my:ac-c-headers-init)
-
-
-;; Removes *Completions* from buffer after you've opened a file.
-(add-hook 'minibuffer-exit-hook
-          '(lambda ()
-             (let ((buffer "*Completions*"))
-               (and (get-buffer buffer)
-                    (kill-buffer buffer)))))
 
 ;; Don't show *Buffer list* when opening multiple files at the same time.
 (setq inhibit-startup-buffer-menu t)

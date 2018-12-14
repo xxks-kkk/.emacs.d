@@ -56,7 +56,12 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
-
+;; Removes *Completions* from buffer after you've opened a file.
+(add-hook 'minibuffer-exit-hook
+          '(lambda ()
+             (let ((buffer "*Completions*"))
+               (and (get-buffer buffer)
+                    (kill-buffer buffer)))))
 
 
 
