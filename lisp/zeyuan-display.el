@@ -1,5 +1,10 @@
 ;;; Emacs display config
 
+(require 'zeyuan-elpa)
+(require-package 'golden-ratio)
+
+(require 'golden-ratio)
+
 ; load the theme
 (load-theme 'manoj-dark)
 
@@ -30,6 +35,29 @@
 
 ;; Makes *scratch* empty.
 (setq initial-scratch-message "")
+
+; Disable the ring bell
+(setq ring-bell-function 'ignore)
+
+(setq
+ x-select-enable-clipboard t
+ x-select-enable-primary t
+ save-interprogram-paste-before-kill t
+ apropos-do-all t
+ mouse-yank-at-point t)
+
+; Enable Golden Ratio: resizes Emacs windows automatically to make the window
+; that has the focus to have perfect size for editing.
+(golden-ratio-mode 1)
+
+; Highlights the matching pair when the point is over parentheses
+(show-paren-mode 1)
+
+;; Highlight current line
+(global-hl-line-mode 1)
+
+
+
 
 
 (provide 'zeyuan-display)

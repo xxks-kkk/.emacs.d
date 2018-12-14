@@ -35,6 +35,8 @@
 (require 'zeyuan-mac)
 (require 'zeyuan-perl)
 (require 'zeyuan-cpp)
+(require 'zeyuan-key-shortcuts)
+(require 'zeyuan-others)
 
 ;; Enable use-package
 (eval-when-compile
@@ -77,12 +79,6 @@
 
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
-
-; Keep a list of recently opened files
-(recentf-mode 1)
-
-; Highlights the matching pair when the point is over parentheses
-(show-paren-mode 1)
 
 ; Deactive tabs to be used for indentation (force myself to use space for indentation)
 (setq-default indent-tabs-mode nil)
@@ -167,39 +163,6 @@
 (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
-;;------------------------------------
-;; Key bindings
-;;------------------------------------
-
-(global-set-key (kbd "C-x C-b") 'ibuffer) ; replace "list-buffers" with "ibuffer"
-(global-set-key (kbd "<f8>") 'execute-extended-command) ; bind with 'M-x' by default
-(global-set-key (kbd "<f7>") 'neotree-toggle)
-;(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
-(global-set-key (kbd "<home>") 'move-beginning-of-line)
-(global-set-key (kbd "<end>") 'move-end-of-line)
-(global-set-key (kbd "<f4>") 'undo)
-;; (global-set-key (kbd "<f5>") 'yank)
-;; (global-set-key (kbd "<f6>") 'kill-region)
-(global-set-key (kbd "<f5>") 'dumb-jump-go)
-(global-set-key (kbd "<f6>") 'dumb-jump-back)
-
-;;------------------------------------
-;; Make frequently used commands short
-;;------------------------------------
-
-(defalias 'lml 'list-matching-lines)
-(defalias 'gl 'goto-line)
-(defalias 'rs 'replace-string)
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'qr 'query-replace)
-(defalias 'list-buffers 'ibuffer) ; always use ibuffer
-(defalias 'yes-or-no-p 'y-or-n-p) ; y or n is enough
-(defalias 'rb 'revert-buffer)
-(defalias 'rof 'recentf-open-files) ; list recently opened files
-(defalias 'cy 'clipboard-yank); copy the text from clipboard
-(defalias 'ck 'clipboard-kill-region); copy the text to clipboard
-(defalias 'cr 'comment-region);
-(defalias 'ucr 'uncomment-region);
 
 ;;----------------------------------
 ;; Global modes setting
