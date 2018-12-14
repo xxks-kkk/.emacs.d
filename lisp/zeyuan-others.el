@@ -1,7 +1,7 @@
 (require 'saveplace)
 
 (require-package 'rainbow-delimiters)
-
+(require-package 'helm)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -26,14 +26,11 @@
 
 ; Start emacs ido mode on default
 (setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;(setq ido-everywhere t)
 (setq ido-use-filename-at-point nil)
 (setq ido-auto-merge-work-directories-length -1)
-(setq ido-use-virtual-buffers t)
+;(setq ido-use-virtual-buffers t)
 (ido-mode 1)
-
-;; Changes all yes/no questions to y/n type
-(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
@@ -43,5 +40,8 @@
 
 (setq company-tooltip-align-annotations t)
 (add-hook 'prog-mode-hook 'company-mode)
+
+(require 'helm-config)
+(helm-mode 1)
 
 (provide 'zeyuan-others)

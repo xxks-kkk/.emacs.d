@@ -23,6 +23,15 @@
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Helm-related key configurations
+(with-eval-after-load "helm"
+    (bind-key "M-Y" #'helm-execute-persistent-action helm-map))
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x r b") 'helm-bookmarks)
+(define-key global-map [remap execute-extended-command] 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-c <left>")  'windmove-left)
