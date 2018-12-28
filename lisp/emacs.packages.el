@@ -11,6 +11,7 @@
 (packages-require 'helm-swoop)
 (packages-require 'helm-projectile)
 (require-package 'company)
+(packages-require 'projectile)
 
 ;; Enable use-package
 (eval-when-compile

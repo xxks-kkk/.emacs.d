@@ -21,6 +21,7 @@
 (require 'emacs.dumb.jump)
 (require 'setup-helm)
 (require 'emacs.company)
+(require 'emacs.neotree)
 
 ;; (require 'zeyuan-mac)
 ;; (require 'zeyuan-perl)
@@ -28,16 +29,6 @@
 ;; (require 'zeyuan-key-shortcuts)
 ;; (require 'zeyuan-others)
 ;; (require 'zeyuan-rust)
-
-
-
-
-
-
-
-; neotree show hidden files
-(setq-default neo-show-hidden-files t)
-
 
 ; enable flycheck
 (use-package flycheck
