@@ -9,6 +9,7 @@
 
 ; set custom-file
 (setq custom-file "~/.emacs.d/.emacs-custom.el")
+(require 'f)
 (when (f-exists? (concat user-emacs-directory ".emacs-custom.el")) 
   (load custom-file))
 

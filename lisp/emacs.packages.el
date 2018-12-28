@@ -1,3 +1,4 @@
+(packages-require 'auto-complete)
 (packages-require 'cl)                                                          
 (packages-require 'clang-format)
 (packages-require 'cmake-mode)
@@ -21,6 +22,7 @@
 (packages-require 'rainbow-delimiters)                                          
 (packages-require 'undo-tree)
 (packages-require 'use-package)
+(packages-require 'yasnippet)
 
 ;; Enable use-package
 (eval-when-compile
