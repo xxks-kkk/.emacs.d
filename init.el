@@ -1,47 +1,20 @@
-; Want Emacs to automatically run a server on startup if it's not running
-(load "server")
-(unless (server-running-p) (server-start))
+;; Load my personal customization files from ~/.emacs.d/lisp
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; Make sure the "lisp" directory under the user-config folder, and all subfolders,
-;; are in the load path
-(let ((default-directory
-	(concat user-emacs-directory
-		(convert-standard-filename "lisp"))))
-(normal-top-level-add-subdirs-to-load-path))
-
-;; [EAB] Add and enable MELPA                                                   
-(setq package-archives                                                          
-      '(                                                                        
-        ("melpa" . "http://melpa.org/packages/")                                
-        ;;("melpa-stable" . "http://stable.melpa.org/packages/")                
-        ;; ("org"       . "http://orgmode.org/elpa/")                           
-        ("gnu"       . "http://elpa.gnu.org/packages/")                         
-        ("marmalade" .  "https://marmalade-repo.org/packages/"))                
-      )                                                                         
-                                                                                
-(package-initialize)                                                            
-(package-refresh-contents)                                                      
-                                                                                
-(defun packages-require (&rest packs)                                           
-  "Install and load a package. If the package is not available install it automaticaly."
-  (mapc  (lambda (package)                                                      
-           (unless (package-installed-p package)                                
-             (package-install package)                                          
-             ))                                                                 
-         packs                                                                  
-         ))                                                                     
+; setup package repo
+(require 'zeyuan-elpa)
 
 ; install necessary packages
 (require 'emacs.packages)
 
 ; configure packages
 (require 'emacs.fill.column.indicator)
+(require 'emacs.golden.ratio)
+(require 'emacs.theme)
+(require 'emacs.ui)
 
-                                                                                
 
 
-(require 'zeyuan-display)
-(require 'zeyuan-elpa)
 (require 'zeyuan-mac)
 (require 'zeyuan-perl)
 (require 'zeyuan-cpp)
@@ -78,10 +51,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
+ '(custom-safe-themes
+   (quote
+    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
     (use-package flycheck auto-complete-c-headers yasnippet-classic-snippets yasnippet-snippets yasnippet dumb-jump projectile ggtags rust-mode neotree markdown-mode graphviz-dot-mode go-mode cl-generic auto-complete)))
+ '(safe-local-variable-values
+   (quote
+    ((projectile-project-root . "/Users/zyh/Documents/projects/shuati"))))
  '(scroll-bar-mode (quote right))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
@@ -141,22 +121,11 @@
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 
-;;----------------------------------
-;; Global modes setting
-;;----------------------------------
-
-; Please uncomment the following block if you want to turn off electric-indent-mode globally
-;(when (fboundp 'electric-indent-mode) 
-;   (electric-indent-mode -1))
-
-
+(provide 'init)
+;;; init.el ends here
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
-(provide 'init)
-;;; init.el ends here

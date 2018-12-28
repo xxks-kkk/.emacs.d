@@ -1,6 +1,6 @@
 ;Enable the 80 column rule
 (use-package fill-column-indicator
-  :ensure: t
+  :ensure t
   :init
   (setq fci-rule-width 1)
   (setq fci-rule-color "darkblue")
