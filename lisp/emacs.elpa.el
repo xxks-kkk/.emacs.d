@@ -31,4 +31,4 @@
         (package-refresh-contents))
       (package-install package))))
 
-(provide 'zeyuan-elpa)
+(provide 'emacs.elpa)
