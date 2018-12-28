@@ -5,3 +5,5 @@
 ;;       '("~/.emacs.d/elpa/yasnippet-snippets-20181211.2219/snippets"
 ;;         ))
 (yas-global-mode 1)
+
+(provide 'emacs.yasnippet)

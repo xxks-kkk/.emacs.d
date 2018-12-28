@@ -21,3 +21,5 @@
 
 (add-hook 'c++-mode-hook 'my:ac-c-headers-init)
 (add-hook 'c-mode-hook 'my:ac-c-headers-init)
+
+(provide 'emacs.auto.complete)

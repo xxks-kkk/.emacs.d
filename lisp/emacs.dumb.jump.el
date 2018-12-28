@@ -1,6 +1,7 @@
 ; enable dumb-jump-mode
-(use-package dumb-jump
-  init:
-  (setq dumb-jump-prefer-searcher 'ag)  
-  (dumb-jump-mode 1))
+(packages-require 'dumb-jump)
+(dumb-jump-mode 1)
+(setq dumb-jump-prefer-searcher 'ag)
 
+
+(provide 'emacs.dumb.jump)
