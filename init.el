@@ -29,10 +29,11 @@
 (require 'emacs.clang.format)
 (require 'zeyuan-key-shortcuts)
 (require 'emacs.undo.tree)
-
-
-;; (require 'zeyuan-others)
-;; (require 'zeyuan-rust)
+(require 'setup-helm-gtags)
+(require 'emacs.rainbow.delimiters)
+(require 'emacs.modes)
+(require 'zeyuan-others)
+(require 'zeyuan-rust)
 
 
 (provide 'init)

@@ -16,3 +16,18 @@
 
 ; Make whitespace-mode use just basic coloring
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
+
+; Keep a list of recently opened files
+(recentf-mode 1)
+(setq recentf-max-menu-items 40)
+
+; Start emacs ido mode on default
+(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+(setq ido-use-filename-at-point nil)
+(setq ido-auto-merge-work-directories-length -1)
+;(setq ido-use-virtual-buffers t)
+(ido-mode 1)
+
+
+(provide 'emacs.modes)

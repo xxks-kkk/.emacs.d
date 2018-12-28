@@ -1,11 +1,3 @@
-(require 'zeyuan-elpa)
-
-(require-package 'company)
-(require-package 'racer)
-(require-package 'rust-mode)
-(require-package 'flycheck)
-(require-package 'flycheck-rust)
-
 (require 'company)
 (require 'racer)
 (require 'rust-mode)

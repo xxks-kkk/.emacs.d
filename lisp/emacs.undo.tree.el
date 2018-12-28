@@ -3,7 +3,6 @@
 ;;                                     ;;
 ;; GROUP: Editing -> Undo -> Undo Tree ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(packages-require 'undo-tree)
 (use-package undo-tree
   :ensure t
   :init
