@@ -14,6 +14,7 @@
 (packages-require 'projectile)
 (packages-require 'clang-format)
 (packages-require 'f)
+(packages-require 'cmake-mode)
 
 ;; Enable use-package
 (eval-when-compile
