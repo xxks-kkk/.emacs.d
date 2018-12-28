@@ -1,15 +1,16 @@
 ;; Load my personal customization files from ~/.emacs.d/lisp
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-; set custom-file
-(setq custom-file "~/.emacs.d/.emacs-custom.el")
-(load custom-file)
-
 ; setup package repo
 (require 'emacs.elpa)
 
 ; install necessary packages
 (require 'emacs.packages)
+
+; set custom-file
+(setq custom-file "~/.emacs.d/.emacs-custom.el")
+(when (f-exists? (concat user-emacs-directory ".emacs-custom.el")) 
+  (load custom-file))
 
 ; load configurations
 (require 'emacs.fill.column.indicator)
