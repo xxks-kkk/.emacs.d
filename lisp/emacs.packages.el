@@ -5,6 +5,7 @@
 (require-package 'company)
 (packages-require 'color-theme-sanityinc-solarized)
 (packages-require 'color-theme-sanityinc-tomorrow)
+(require-package 'dumb-jump)
 (packages-require 'f)
 (require-package 'flycheck)
 (require-package 'flycheck-rust)
