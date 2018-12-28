@@ -37,6 +37,7 @@
 (require 'zeyuan-others)
 (require 'zeyuan-rust)
 (require 'emacs.highlight.symbol)
+(require 'emacs.helm.descbinds)
 
 (provide 'init)
 ;;; init.el ends here

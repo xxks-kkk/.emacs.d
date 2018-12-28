@@ -13,6 +13,7 @@
 (packages-require 'ggtags)                                                      
 (packages-require 'golden-ratio)
 (packages-require 'helm)
+(packages-require 'helm-descbinds)
 (packages-require 'helm-gtags)
 (packages-require 'helm-projectile)
 (packages-require 'helm-swoop)
