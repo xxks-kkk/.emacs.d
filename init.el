@@ -27,8 +27,8 @@
 (require 'zeyuan-perl)
 (require 'zeyuan-cpp)
 (require 'emacs.clang.format)
+(require 'zeyuan-key-shortcuts)
 
-;; (require 'zeyuan-key-shortcuts)
 ;; (require 'zeyuan-others)
 ;; (require 'zeyuan-rust)
 

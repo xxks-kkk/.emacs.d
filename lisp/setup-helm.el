@@ -68,6 +68,13 @@
           helm-locate-fuzzy-match t
           helm-display-header-line nil)
 
+    ; on Mac, we use ggrep instead of grep
+    (when (eq system-type 'darwin)
+      (setq helm-grep-default-command
+      "ggrep --color=always -d skip %e -n%cH -e %p %f"
+      helm-grep-default-recurse-command
+      "ggrep --color=always -d recurse %e -n%cH -e %p %f"))
+    
     (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
     (global-set-key (kbd "M-x") 'helm-M-x)
