@@ -1,7 +1,8 @@
-(require 'saveplace)
+;; Contains various emacs tweaks
+;; all the tweaks should NOT include tweaks to the 3rd-party packages; all
+;; features are shipped with emacs by default
 
-(require-package 'rainbow-delimiters)
-(require-package 'helm)
+(require 'saveplace)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -18,30 +19,8 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-; Keep a list of recently opened files
-(recentf-mode 1)
-(setq recentf-max-menu-items 40)
-
-; Start emacs ido mode on default
-(setq ido-enable-flex-matching t)
-;(setq ido-everywhere t)
-(setq ido-use-filename-at-point nil)
-(setq ido-auto-merge-work-directories-length -1)
-;(setq ido-use-virtual-buffers t)
-(ido-mode 1)
-
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
-(require-package 'company)
-(require 'company)
-
-(setq company-tooltip-align-annotations t)
-(add-hook 'prog-mode-hook 'company-mode)
-
-(require 'helm-config)
-(helm-mode 1)
 
 (provide 'zeyuan-others)
