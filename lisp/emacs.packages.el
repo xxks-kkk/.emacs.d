@@ -15,6 +15,7 @@
 (packages-require 'clang-format)
 (packages-require 'f)
 (packages-require 'cmake-mode)
+(packages-require 'undo-tree)
 
 ;; Enable use-package
 (eval-when-compile

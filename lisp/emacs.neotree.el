@@ -76,7 +76,7 @@
     (setq neo-force-change-root t)
     :bind (
            ;; main entry key
-           ([f8] . neotree-toggle)
+           ([f7] . neotree-toggle)
      )
   )
 

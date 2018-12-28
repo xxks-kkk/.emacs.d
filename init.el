@@ -28,6 +28,8 @@
 (require 'zeyuan-cpp)
 (require 'emacs.clang.format)
 (require 'zeyuan-key-shortcuts)
+(require 'emacs.undo.tree)
+
 
 ;; (require 'zeyuan-others)
 ;; (require 'zeyuan-rust)
