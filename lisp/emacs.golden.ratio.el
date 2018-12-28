@@ -4,6 +4,7 @@
 (use-package golden-ratio
   :ensure t
   :init
+  (golden-ratio-mode t)
   )
 
 (provide 'emacs.golden.ratio)
