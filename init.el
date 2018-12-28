@@ -38,6 +38,7 @@
 (require 'zeyuan-rust)
 (require 'emacs.highlight.symbol)
 (require 'emacs.helm.descbinds)
+(require 'emacs.command.log.mode)
 
 (provide 'init)
 ;;; init.el ends here

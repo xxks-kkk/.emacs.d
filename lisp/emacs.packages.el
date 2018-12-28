@@ -2,6 +2,7 @@
 (packages-require 'cl)                                                          
 (packages-require 'clang-format)
 (packages-require 'cmake-mode)
+(require-package 'command-log-mode)
 (require-package 'company)
 (packages-require 'color-theme-sanityinc-solarized)
 (packages-require 'color-theme-sanityinc-tomorrow)
