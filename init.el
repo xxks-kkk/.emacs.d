@@ -1,35 +1,45 @@
-;;;------------------------------------
-;;; Tested on Emacs 23.1, 24.3.1, 26.3
-;;;
-;;; Aims to maximize the productivity
-;;; while minimize the package to be installed 
-;;; and configuration steps
-;;;------------------------------------
-
-
-;;;-----------------------------------
-;;; OS-Level Setup:
-;;;
-;;; 1. Change the cursor type to "block" for terminal simulator
-;;;    and set the color of cursor to #AF1212 (R:175, G:18, B:18)
-;;;
-;;;
-;;;-----------------------------------
-
-;;------------------------------------
-;; Emacs System
-;;------------------------------------
-
-
 ; Want Emacs to automatically run a server on startup if it's not running
 (load "server")
 (unless (server-running-p) (server-start))
 
-;; Tell emacs where is your personal elisp lib dir
-(add-to-list 'load-path "~/.emacs.d/elpa/")
+;; Make sure the "lisp" directory under the user-config folder, and all subfolders,
+;; are in the load path
+(let ((default-directory
+	(concat user-emacs-directory
+		(convert-standard-filename "lisp"))))
+(normal-top-level-add-subdirs-to-load-path))
 
-;; Load my personal customization files from ~/.emacs.d/lisp
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+;; [EAB] Add and enable MELPA                                                   
+(setq package-archives                                                          
+      '(                                                                        
+        ("melpa" . "http://melpa.org/packages/")                                
+        ;;("melpa-stable" . "http://stable.melpa.org/packages/")                
+        ;; ("org"       . "http://orgmode.org/elpa/")                           
+        ("gnu"       . "http://elpa.gnu.org/packages/")                         
+        ("marmalade" .  "https://marmalade-repo.org/packages/"))                
+      )                                                                         
+                                                                                
+(package-initialize)                                                            
+(package-refresh-contents)                                                      
+                                                                                
+(defun packages-require (&rest packs)                                           
+  "Install and load a package. If the package is not available install it automaticaly."
+  (mapc  (lambda (package)                                                      
+           (unless (package-installed-p package)                                
+             (package-install package)                                          
+             ))                                                                 
+         packs                                                                  
+         ))                                                                     
+
+; install necessary packages
+(require 'emacs.packages)
+
+; configure packages
+(require 'emacs.fill.column.indicator)
+
+                                                                                
+
+
 (require 'zeyuan-display)
 (require 'zeyuan-elpa)
 (require 'zeyuan-mac)
@@ -39,9 +49,6 @@
 (require 'zeyuan-others)
 (require 'zeyuan-rust)
 
-;; Enable use-package
-(eval-when-compile
-  (require 'use-package))
 
 
 ; activation org mode
@@ -54,18 +61,6 @@
 ; use graphviz-dot-mode
 (add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
 
-; Enable the 80 column rule
-(load "fill-column-indicator") ;; best not to include the ending ".el" or ".elc"
-(require 'fill-column-indicator)
-(setq fci-rule-width 1)
-(setq fci-rule-color "darkblue")
-;; Enable this minor mode globally
-;; (https://www.emacswiki.org/emacs/FillColumnIndicator#toc5)
-(define-globalized-minor-mode my-global-fci-mode fci-mode
-    (lambda () (fci-mode 1)))
-(my-global-fci-mode 1)
-;set 43 to be mobile-friendly code browsing
-(setq fci-rule-column 80) 
 
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
