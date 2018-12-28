@@ -22,22 +22,15 @@
 (require 'setup-helm)
 (require 'emacs.company)
 (require 'emacs.neotree)
+(require 'zeyuan-mac)
+(require 'emacs.flycheck)
 
-;; (require 'zeyuan-mac)
 ;; (require 'zeyuan-perl)
 ;; (require 'zeyuan-cpp)
 ;; (require 'zeyuan-key-shortcuts)
 ;; (require 'zeyuan-others)
 ;; (require 'zeyuan-rust)
 
-; enable flycheck
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
-; enable flycheck-rust
-(with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (provide 'init)
 ;;; init.el ends here
