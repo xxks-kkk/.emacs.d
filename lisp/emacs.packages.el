@@ -12,6 +12,8 @@
 (packages-require 'helm-projectile)
 (require-package 'company)
 (packages-require 'projectile)
+(packages-require 'clang-format)
+(packages-require 'f)
 
 ;; Enable use-package
 (eval-when-compile

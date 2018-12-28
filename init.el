@@ -24,9 +24,10 @@
 (require 'emacs.neotree)
 (require 'zeyuan-mac)
 (require 'emacs.flycheck)
+(require 'zeyuan-perl)
+(require 'zeyuan-cpp)
+(require 'emacs.clang.format)
 
-;; (require 'zeyuan-perl)
-;; (require 'zeyuan-cpp)
 ;; (require 'zeyuan-key-shortcuts)
 ;; (require 'zeyuan-others)
 ;; (require 'zeyuan-rust)
