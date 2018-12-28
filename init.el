@@ -16,12 +16,12 @@
 (require 'emacs.yasnippet)
 (require 'emacs.dumb.jump)
 
-;; (require 'zeyuan-mac)
-;; (require 'zeyuan-perl)
-;; (require 'zeyuan-cpp)
-;; (require 'zeyuan-key-shortcuts)
-;; (require 'zeyuan-others)
-;; (require 'zeyuan-rust)
+(require 'zeyuan-mac)
+(require 'zeyuan-perl)
+(require 'zeyuan-cpp)
+(require 'zeyuan-key-shortcuts)
+(require 'zeyuan-others)
+(require 'zeyuan-rust)
 
 
 (custom-set-variables
