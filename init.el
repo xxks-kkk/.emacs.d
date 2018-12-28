@@ -36,7 +36,7 @@
 (require 'emacs.modes)
 (require 'zeyuan-others)
 (require 'zeyuan-rust)
-
+(require 'emacs.highlight.symbol)
 
 (provide 'init)
 ;;; init.el ends here

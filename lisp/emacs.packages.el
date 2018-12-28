@@ -15,6 +15,7 @@
 (packages-require 'helm-gtags)
 (packages-require 'helm-projectile)
 (packages-require 'helm-swoop)
+(packages-require 'highlight-symbol)
 (packages-require 'paredit)                                                     
 (packages-require 'projectile)
 (require-package 'racer)
