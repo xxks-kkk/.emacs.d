@@ -7,7 +7,7 @@
 ; install necessary packages
 (require 'emacs.packages)
 
-; configure packages
+; load configurations
 (require 'emacs.fill.column.indicator)
 (require 'emacs.golden.ratio)
 (require 'emacs.theme)
@@ -15,13 +15,15 @@
 (require 'emacs.auto.complete)
 (require 'emacs.yasnippet)
 (require 'emacs.dumb.jump)
+(require 'setup-helm)
+(require 'emacs.company)
 
-(require 'zeyuan-mac)
-(require 'zeyuan-perl)
-(require 'zeyuan-cpp)
-(require 'zeyuan-key-shortcuts)
-(require 'zeyuan-others)
-(require 'zeyuan-rust)
+;; (require 'zeyuan-mac)
+;; (require 'zeyuan-perl)
+;; (require 'zeyuan-cpp)
+;; (require 'zeyuan-key-shortcuts)
+;; (require 'zeyuan-others)
+;; (require 'zeyuan-rust)
 
 
 (custom-set-variables

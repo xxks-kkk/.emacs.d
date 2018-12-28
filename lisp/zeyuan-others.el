@@ -35,11 +35,6 @@
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
-(require-package 'company)
-(require 'company)
-
-(setq company-tooltip-align-annotations t)
-(add-hook 'prog-mode-hook 'company-mode)
 
 (require 'helm-config)
 (helm-mode 1)

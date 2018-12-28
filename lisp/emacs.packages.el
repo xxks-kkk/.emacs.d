@@ -7,6 +7,10 @@
 (packages-require 'golden-ratio)
 (packages-require 'color-theme-sanityinc-solarized)
 (packages-require 'color-theme-sanityinc-tomorrow)
+(packages-require 'helm)
+(packages-require 'helm-swoop)
+(packages-require 'helm-projectile)
+(require-package 'company)
 
 ;; Enable use-package
 (eval-when-compile
