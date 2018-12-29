@@ -39,6 +39,7 @@
 (require 'emacs.highlight.symbol)
 (require 'emacs.helm.descbinds)
 (require 'emacs.command.log.mode)
+(require 'emacs.markdown)
 
 (provide 'init)
 ;;; init.el ends here

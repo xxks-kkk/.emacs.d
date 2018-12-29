@@ -19,6 +19,7 @@
 (packages-require 'helm-projectile)
 (packages-require 'helm-swoop)
 (packages-require 'highlight-symbol)
+(packages-require 'markdown-mode)
 (packages-require 'paredit)                                                     
 (packages-require 'projectile)
 (require-package 'racer)
