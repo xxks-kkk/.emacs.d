@@ -42,5 +42,6 @@
 (defalias 'cr 'comment-region);
 (defalias 'ucr 'uncomment-region);
 (defalias 'eb 'eval-buffer)
+(defalias 'hgd 'helm-gtags-dwim); find the function usage under the cursor
 
 (provide 'zeyuan-key-shortcuts)
