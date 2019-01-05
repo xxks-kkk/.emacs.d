@@ -12,3 +12,4 @@ places
 network-security.data
 elpa
 .emacs-custom.el
+projectile.cache

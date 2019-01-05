@@ -8,6 +8,9 @@
 ;(global-set-key "\C-m" 'newline-and-indent) ; make Emacs auto-indent my C code 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
+; This is best used in combination with .projectile (including the ignored directories) to
+; grep only specific directories/files
+(global-set-key (kbd "<f2>") 'helm-projectile-grep)
 (global-set-key (kbd "<f4>") 'undo)
 ;; (global-set-key (kbd "<f5>") 'yank)
 ;; (global-set-key (kbd "<f6>") 'kill-region)
