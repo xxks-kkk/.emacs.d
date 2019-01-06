@@ -16,7 +16,7 @@
              (setq racer-cmd (concat (getenv "HOME") "/.cargo/bin/racer"))
              (local-set-key (kbd "TAB") #'company-indent-or-complete-common)
                   (electric-pair-mode 1)))
-
+(setq rust-format-on-save t)
 
 (provide 'zeyuan-rust)
 
