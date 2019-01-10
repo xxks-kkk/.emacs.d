@@ -21,6 +21,8 @@ if [ "$DISTRO" == "Ubuntu" ]; then
     # install gtags
     # Ref: https://askubuntu.com/questions/839852/emacs-c-ide-gnu-global-helm-gtags
     sudo apt install global
+    # install clang-format
+    sudo apt install clang-format
 elif [ "$DISTRO" == "darwin" ]; then
     brew install global
 fi
