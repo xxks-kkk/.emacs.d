@@ -10,7 +10,10 @@
   :config
     ;; enable flycheck-rust
   (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  (with-eval-after-load 'python-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
+  )
 
 
 (provide 'emacs.flycheck)
