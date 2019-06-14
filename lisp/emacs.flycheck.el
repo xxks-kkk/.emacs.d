@@ -15,5 +15,8 @@
     (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
   )
 
+(add-hook 'python-mode-hook
+          (lambda ()
+              (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")))
 
 (provide 'emacs.flycheck)

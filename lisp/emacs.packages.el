@@ -29,6 +29,8 @@
 (packages-require 'use-package)
 (packages-require 'yasnippet)
 (packages-require 'auto-complete-c-headers)
+(packages-require 'flycheck-pycheckers)
+(packages-require 'format-all)
 
 ;; Enable use-package
 (eval-when-compile

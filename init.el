@@ -40,6 +40,7 @@
 (require 'emacs.helm.descbinds)
 (require 'emacs.command.log.mode)
 (require 'emacs.markdown)
+(require 'emacs.format.all)
 
 (provide 'init)
 ;;; init.el ends here
