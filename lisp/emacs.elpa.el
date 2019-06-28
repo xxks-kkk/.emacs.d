@@ -10,8 +10,13 @@
         ("marmalade" .  "https://marmalade-repo.org/packages/"))                
       )                                                                         
                                                                                 
-(package-initialize)                                                            
-(package-refresh-contents)                                                      
+(package-initialize)
+
+;; We only run (package-refresh-contents) on first install each time
+(defun my-package-install-refresh-contents (&rest args)
+  (package-refresh-contents)
+  (advice-remove 'package-install 'my-package-install-refresh-contents))
+(advice-add 'package-install :before 'my-package-install-refresh-contents)
                                                                     
 (defun packages-require (&rest packs)                                           
   "Install and load a package. If the package is not available install it automaticaly."
