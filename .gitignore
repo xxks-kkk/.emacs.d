@@ -13,3 +13,4 @@ network-security.data
 elpa
 .emacs-custom.el
 projectile.cache
+ac-comphist.dat
