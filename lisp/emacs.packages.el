@@ -31,6 +31,7 @@
 (packages-require 'auto-complete-c-headers)
 (packages-require 'flycheck-pycheckers)
 (packages-require 'format-all)
+(packages-require 'go-mode)
 
 ;; Enable use-package
 (eval-when-compile
