@@ -34,3 +34,6 @@ rustup toolchain add nightly
 rustup component add rust-src
 cargo +nightly install racer
 rustup component add rustfmt
+
+# install go-related (assume go is pre-installed)
+go get github.com/rogpeppe/godef

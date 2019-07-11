@@ -28,6 +28,7 @@
 (require 'emacs.flycheck)
 (require 'zeyuan-perl)
 (require 'zeyuan-cpp)
+(require 'zeyuan-go)
 (require 'emacs.clang.format)
 (require 'zeyuan-key-shortcuts)
 (require 'emacs.undo.tree)
