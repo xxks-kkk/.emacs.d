@@ -32,6 +32,7 @@
 (packages-require 'flycheck-pycheckers)
 (packages-require 'format-all)
 (packages-require 'go-mode)
+(packages-require 'go-guru)
 
 ;; Enable use-package
 (eval-when-compile
