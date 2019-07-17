@@ -42,6 +42,7 @@
 (require 'emacs.command.log.mode)
 (require 'emacs.markdown)
 (require 'emacs.format.all)
+(require 'zeyuan-makefile)
 
 (provide 'init)
 ;;; init.el ends here
