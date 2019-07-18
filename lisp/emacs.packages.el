@@ -33,6 +33,7 @@
 (packages-require 'format-all)
 (packages-require 'go-mode)
 (packages-require 'go-guru)
+(packages-require 'yaml-mode)
 
 ;; Enable use-package
 (eval-when-compile

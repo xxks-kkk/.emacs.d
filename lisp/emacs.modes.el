@@ -7,6 +7,8 @@
 
 ; use graphviz-dot-mode
 (add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+; use yaml-mode
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ; Auto show completions for execute-extended-command
 (icomplete-mode 1)
