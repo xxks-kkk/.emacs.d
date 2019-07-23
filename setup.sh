@@ -1,3 +1,4 @@
+#!/bin/bash -vx
 # Install some dependencies for this configuration works
 
 # Determine OS platform
@@ -23,8 +24,11 @@ if [ "$DISTRO" == "Ubuntu" ]; then
     sudo apt install global
     # install clang-format
     sudo apt install clang-format
+    # install ag (sliver search)
+    sudo apt install silversearcher-ag
 elif [ "$DISTRO" == "darwin" ]; then
     brew install global
+    brew install the_silver_searcher
 fi
 
 
@@ -36,4 +40,6 @@ cargo +nightly install racer
 rustup component add rustfmt
 
 # install go-related (assume go is pre-installed)
-go get github.com/rogpeppe/godef
+if [ `which go` != "" ]; then
+    go get github.com/rogpeppe/godef
+fi
