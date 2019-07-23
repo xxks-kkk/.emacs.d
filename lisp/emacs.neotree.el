@@ -14,6 +14,8 @@
   :init
     ;; Show hidden files, default=nil
     (setq neo-show-hidden-files t)
+    ;; Show neotree automatically on emacs start-up
+    (neotree-show)
   :config
     ;; If theme not set, set it to "nerd" for graphics displays and "arrow" for terminal displays
     ;; Options are: classic (default), ascii, arrow, icons, or nerd.  Icon requires special

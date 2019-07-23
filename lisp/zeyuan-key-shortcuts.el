@@ -47,4 +47,21 @@
 (defalias 'eb 'eval-buffer)
 (defalias 'hgd 'helm-gtags-dwim); find the function usage under the cursor
 
+;;------------------------------------
+;; Make frequently used commands short
+;;------------------------------------
+
+; use C-u C-s will search for other occurrences of the symbol at point
+(defun endless/isearch-symbol-with-prefix (p)
+  "Like isearch, unless prefix argument is provided.
+With a prefix argument P, isearch for the symbol at point."
+  (interactive "P")
+  (let ((current-prefix-arg nil))
+    (call-interactively
+     (if p #'isearch-forward-symbol-at-point
+       #'isearch-forward))))
+(global-set-key [remap isearch-forward]
+                #'endless/isearch-symbol-with-prefix)
+
+
 (provide 'zeyuan-key-shortcuts)
