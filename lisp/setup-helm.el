@@ -40,9 +40,6 @@
           ;; helm-quick-update t ; do not display invisible candidates
           helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
 
-          ;; you can customize helm-do-grep to execute ack-grep
-          ;; helm-grep-default-command "ack-grep -Hn --smart-case --no-group --no-color %e %p %f"
-          ;; helm-grep-default-recurse-command "ack-grep -H --smart-case --no-group --no-color %e %p %f"
           helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
 
           helm-echo-input-in-header-line t
@@ -74,6 +71,10 @@
       "ggrep --color=always -d skip %e -n%cH -e %p %f"
       helm-grep-default-recurse-command
       "ggrep --color=always -d recurse %e -n%cH -e %p %f"))
+
+    ; use Ag (sliver-search) keybind: M-g a in helm buffer
+    (setq helm-grep-ag-command "ag --line-numbers -S --hidden --color --color-match '31;43' --nogroup %s %s %s")
+    (setq helm-grep-ag-pipe-cmd-switches '("--color-match '31;43'"))
     
     (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
