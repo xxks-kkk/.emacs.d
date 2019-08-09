@@ -34,6 +34,7 @@
 (packages-require 'go-mode)
 (packages-require 'go-guru)
 (packages-require 'yaml-mode)
+(packages-require 'flycheck-yamllint)
 
 ;; Enable use-package
 (eval-when-compile

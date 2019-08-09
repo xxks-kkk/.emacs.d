@@ -26,6 +26,8 @@ if [ "$DISTRO" == "Ubuntu" ]; then
     sudo apt install clang-format
     # install ag (sliver search)
     sudo apt install silversearcher-ag
+    # install yamllint
+    sudo apt install yamllint
 elif [ "$DISTRO" == "darwin" ]; then
     brew install global
     brew install the_silver_searcher
