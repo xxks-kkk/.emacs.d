@@ -21,8 +21,15 @@
 (add-hook 'python-mode-hook
           (lambda ()
             (setq flycheck-python-pylint-executable "/usr/local/bin/pylint")))
+
 (add-hook 'yaml-mode-hook
           (lambda()
             (setq flycheck-yaml-yamllint-executable "/usr/bin/yamllint")))
+
+; See issue: https://github.com/flycheck/flycheck/issues/1523
+(let ((govet (flycheck-checker-get 'go-vet 'command)))
+  (when (equal (cadr govet) "tool")
+    (setf (cdr govet) (cddr govet))))
+
 
 (provide 'emacs.flycheck)
