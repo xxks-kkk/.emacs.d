@@ -43,6 +43,7 @@
 (require 'emacs.markdown)
 (require 'emacs.format.all)
 (require 'zeyuan-makefile)
+(require 'emacs.fic)
 
 (provide 'init)
 ;;; init.el ends here
