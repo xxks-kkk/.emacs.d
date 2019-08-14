@@ -28,9 +28,12 @@ if [ "$DISTRO" == "Ubuntu" ]; then
     sudo apt install silversearcher-ag
     # install yamllint
     sudo apt install yamllint
+    # install pylint
+    pip3 install pylint
 elif [ "$DISTRO" == "darwin" ]; then
     brew install global
     brew install the_silver_searcher
+    pip3 install pylint
 fi
 
 
@@ -44,4 +47,5 @@ rustup component add rustfmt
 # install go-related (assume go is pre-installed)
 if [ `which go` != "" ]; then
     go get github.com/rogpeppe/godef
+    go get golang.org/x/tools/cmd/guru
 fi
