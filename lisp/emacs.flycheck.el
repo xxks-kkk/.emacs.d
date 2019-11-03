@@ -2,7 +2,6 @@
 (use-package flycheck
   :ensure t
   :init
-  (setq global-flycheck-mode t)
     ;; Add company-mode to the mode hooks for the list of modes given
   :hook (
       ((prog-mode lisp-mode c-mode-common perl-mode python-mode lua-mode sh-mode makefile-mode emacs-lisp-mode yaml-mode) . flycheck-mode)
@@ -31,5 +30,6 @@
   (when (equal (cadr govet) "tool")
     (setf (cdr govet) (cddr govet))))
 
-
 (provide 'emacs.flycheck)
+
+;;; emacs.flycheck ends here

@@ -44,7 +44,7 @@
 (require 'emacs.format.all)
 (require 'zeyuan-makefile)
 (require 'emacs.fic)
-(require 'emacs.scss)
+(require 'emacs.scss.sass)
 
 (provide 'init)
 ;;; init.el ends here
