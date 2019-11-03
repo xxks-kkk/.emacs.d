@@ -29,7 +29,7 @@
 (require 'zeyuan-perl)
 (require 'zeyuan-cpp)
 (require 'zeyuan-go)
-(require 'emacs.clang.format)
+;(require 'emacs.clang.format)
 (require 'zeyuan-key-shortcuts)
 (require 'emacs.undo.tree)
 (require 'setup-helm-gtags)
@@ -44,6 +44,7 @@
 (require 'emacs.format.all)
 (require 'zeyuan-makefile)
 (require 'emacs.fic)
+(require 'emacs.scss)
 
 (provide 'init)
 ;;; init.el ends here
