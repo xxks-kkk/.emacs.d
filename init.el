@@ -45,6 +45,8 @@
 (require 'zeyuan-makefile)
 (require 'emacs.fic)
 (require 'emacs.scss.sass)
+(require 'emacs.jinja2)
+(require 'emacs.web.mode)
 
 (provide 'init)
 ;;; init.el ends here
