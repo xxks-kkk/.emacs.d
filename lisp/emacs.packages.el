@@ -36,6 +36,7 @@
 (packages-require 'yaml-mode)
 (packages-require 'flycheck-yamllint)
 (packages-require 'web-mode)
+(packages-require 'haml-mode)
 
 ;; Enable use-package
 (eval-when-compile
