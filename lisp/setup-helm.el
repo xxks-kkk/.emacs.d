@@ -63,7 +63,8 @@
           ;; helm-apropos-fuzzy-match t
           helm-buffer-skip-remote-checking t
           helm-locate-fuzzy-match t
-          helm-display-header-line nil)
+          helm-display-header-line nil
+          helm-ff-lynx-style-map t)
 
     ; on Mac, we use ggrep instead of grep
     (when (eq system-type 'darwin)
