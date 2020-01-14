@@ -47,6 +47,7 @@
 (require 'emacs.scss.sass)
 (require 'emacs.jinja2)
 (require 'emacs.web.mode)
+(require 'zeyuan-org-mode)
 
 (provide 'init)
 ;;; init.el ends here
