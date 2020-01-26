@@ -48,6 +48,7 @@
 (require 'emacs.jinja2)
 (require 'emacs.web.mode)
 (require 'zeyuan-org-mode)
+(require 'emacs.wrap.region.mode)
 
 (provide 'init)
 ;;; init.el ends here

@@ -1,5 +1,5 @@
 (packages-require 'auto-complete)
-(packages-require 'cl)                                                          
+(packages-require 'cl)
 (packages-require 'clang-format)
 (packages-require 'cmake-mode)
 (require-package 'command-log-mode)
@@ -11,7 +11,7 @@
 (require-package 'flycheck)
 (require-package 'flycheck-rust)
 (packages-require 'fill-column-indicator)
-(packages-require 'ggtags)                                                      
+(packages-require 'ggtags)
 (packages-require 'golden-ratio)
 (packages-require 'helm)
 (packages-require 'helm-descbinds)
@@ -20,11 +20,11 @@
 (packages-require 'helm-swoop)
 (packages-require 'highlight-symbol)
 (packages-require 'markdown-mode)
-(packages-require 'paredit)                                                     
+(packages-require 'paredit)
 (packages-require 'projectile)
 (require-package 'racer)
 (require-package 'rust-mode)
-(packages-require 'rainbow-delimiters)                                          
+(packages-require 'rainbow-delimiters)
 (packages-require 'undo-tree)
 (packages-require 'use-package)
 (packages-require 'yasnippet)
@@ -37,6 +37,8 @@
 (packages-require 'flycheck-yamllint)
 (packages-require 'web-mode)
 (packages-require 'haml-mode)
+(packages-require 'wrap-region)
+(packages-require 'org-plus-contrib)
 
 ;; Enable use-package
 (eval-when-compile

@@ -5,7 +5,7 @@
       '(                                                                        
         ("melpa" . "http://melpa.org/packages/")                                
         ;;("melpa-stable" . "http://stable.melpa.org/packages/")                
-        ;; ("org"       . "http://orgmode.org/elpa/")                           
+        ("org"       . "https://orgmode.org/elpa/")                           
         ("gnu"       . "http://elpa.gnu.org/packages/")                         
         ("marmalade" .  "https://marmalade-repo.org/packages/"))                
       )                                                                         
