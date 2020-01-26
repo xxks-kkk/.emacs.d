@@ -35,6 +35,7 @@ elif [ "$DISTRO" == "darwin" ]; then
     brew install the_silver_searcher
     pip3 install pylint
     brew install ripgrep
+    brew install gzip
 fi
 
 

@@ -1,6 +1,8 @@
 (require 'org)
 (require 'ox-publish)
 (require 'ox-bibtex)
+(require 'org-tempo) ;https://emacs.stackexchange.com/questions/40571/how-to-set-a-short-cut-for-begin-src-end-src/40587
+(require 'org-ref)
 
 (add-hook 'org-mode-hook #'iimage-mode)
 
@@ -30,5 +32,9 @@
          :components ("org-notes" "org-static"))
         ))
 
+; org-ref configuration
+(setq org-ref-bibliography-notes "~/org/ref/notes.org"
+      org-ref-default-bibliography '("~/org/ref/master.bib")
+      org-ref-pdf-directory "~/org/ref/pdfs/")
 
 (provide 'zeyuan-org-mode)

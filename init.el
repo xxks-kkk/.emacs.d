@@ -13,6 +13,10 @@
 (when (f-exists? (concat user-emacs-directory ".emacs-custom.el")) 
   (load custom-file))
 
+; use the user's shell environment
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ; load configurations
 (require 'emacs.fill.column.indicator)
 (require 'emacs.golden.ratio)

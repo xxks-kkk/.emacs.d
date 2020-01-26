@@ -39,6 +39,8 @@
 (packages-require 'haml-mode)
 (packages-require 'wrap-region)
 (packages-require 'org-plus-contrib)
+(packages-require 'org-ref)
+(packages-require 'exec-path-from-shell)
 
 ;; Enable use-package
 (eval-when-compile
