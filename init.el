@@ -13,6 +13,10 @@
 (when (f-exists? (concat user-emacs-directory ".emacs-custom.el")) 
   (load custom-file))
 
+; use the user's shell environment
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ; load configurations
 (require 'emacs.fill.column.indicator)
 (require 'emacs.golden.ratio)
@@ -47,6 +51,8 @@
 (require 'emacs.scss.sass)
 (require 'emacs.jinja2)
 (require 'emacs.web.mode)
+(require 'zeyuan-org-mode)
+(require 'emacs.wrap.region.mode)
 
 (provide 'init)
 ;;; init.el ends here

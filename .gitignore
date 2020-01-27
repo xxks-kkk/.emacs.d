@@ -14,3 +14,4 @@ elpa
 .emacs-custom.el
 projectile.cache
 ac-comphist.dat
+url

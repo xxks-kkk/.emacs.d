@@ -38,6 +38,8 @@ elif [ "$DISTRO" == "darwin" ]; then
     brew install global
     brew install the_silver_searcher
     pip3 install pylint
+    brew install ripgrep
+    brew install gzip
 elif [ "$DISTRO" == "redhat" ]; then
     sudo yum -y install global clang-format yamllint pylint
     sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
