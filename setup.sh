@@ -1,4 +1,4 @@
-#!/bin/bash -vx
+#!/bin/bash -e
 # Install some dependencies for this configuration works
 
 # Determine OS platform
@@ -10,6 +10,8 @@ if [ "$UNAME" == "linux" ]; then
     if [ -f /etc/lsb-release -o -d /etc/lsb-release.d ]; then
         export DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
         # Otherwise, use release info file
+    elif [ -f /etc/redhat-release ]; then
+        export DISTRO="redhat"
     else
         export DISTRO=$(ls -d /etc/[A-Za-z]*[_-][rv]e[lr]* | grep -v "lsb" | cut -d'/' -f3 | cut -d'-' -f1 | cut -d'_' -f1)
     fi
@@ -17,6 +19,8 @@ fi
 # For everything else (or if above failed), just use generic identifier
 [ "$DISTRO" == "" ] && export DISTRO=$UNAME
 unset UNAME
+
+echo "OS detected as: $DISTRO"
 
 if [ "$DISTRO" == "Ubuntu" ]; then
     # install gtags
@@ -34,6 +38,10 @@ elif [ "$DISTRO" == "darwin" ]; then
     brew install global
     brew install the_silver_searcher
     pip3 install pylint
+elif [ "$DISTRO" == "redhat" ]; then
+    sudo yum -y install global clang-format yamllint pylint
+    sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
+    sudo yum -y install ripgrep
 fi
 
 
