@@ -9,4 +9,4 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 26.3 (Org mode 9.1.9)
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/worg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" title="standard", type="text/css" href="css/worg.css"/>

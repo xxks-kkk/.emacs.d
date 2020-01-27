@@ -1,6 +1,5 @@
 (require 'org)
 (require 'ox-publish)
-(require 'ox-bibtex)
 (require 'org-tempo) ;https://emacs.stackexchange.com/questions/40571/how-to-set-a-short-cut-for-begin-src-end-src/40587
 (require 'org-ref)
 
