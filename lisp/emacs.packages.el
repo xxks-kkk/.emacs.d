@@ -41,6 +41,7 @@
 (packages-require 'org-plus-contrib)
 (packages-require 'org-ref)
 (packages-require 'exec-path-from-shell)
+(packages-require 'ess)
 
 ;; Enable use-package
 (eval-when-compile

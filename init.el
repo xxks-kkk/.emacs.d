@@ -53,6 +53,7 @@
 (require 'emacs.web.mode)
 (require 'zeyuan-org-mode)
 (require 'emacs.wrap.region.mode)
+(require 'emacs.ess)
 
 (provide 'init)
 ;;; init.el ends here
