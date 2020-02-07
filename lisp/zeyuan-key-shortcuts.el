@@ -21,6 +21,7 @@
 ;; quickly open files using projectiles (similar to CMD+P in VS code)
 (global-set-key (kbd "<f8>") 'projectile-find-file-dwim)
 (global-set-key (kbd "<f10>") 'projectile--find-file)
+(global-set-key (kbd "S-<f10>") 'menu-bar-open)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
