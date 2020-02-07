@@ -53,10 +53,10 @@
     (setq neo-smart-open t)
 
     ;; Width of window, default=25
-    ;(setq neo-window-width 25)
+    (setq neo-window-width 25)
 
     ;; Doesn't change size when windows are rebalanced, default=t
-    (setq neo-window-fixed-size t)
+    (setq neo-window-fixed-size nil)
 
     ;; Integrate with VC by changing faces for states of files? Default=nil
     (setq neo-vc-integration nil)
