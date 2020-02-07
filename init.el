@@ -54,6 +54,7 @@
 (require 'zeyuan-org-mode)
 (require 'emacs.wrap.region.mode)
 (require 'emacs.ess)
+(require 'emacs.dtrt-indent)
 
 (provide 'init)
 ;;; init.el ends here

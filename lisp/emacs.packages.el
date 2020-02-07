@@ -28,6 +28,7 @@
 (packages-require 'undo-tree)
 (packages-require 'use-package)
 (packages-require 'yasnippet)
+(packages-require 'yasnippet-snippets)
 (packages-require 'auto-complete-c-headers)
 (packages-require 'flycheck-pycheckers)
 (packages-require 'format-all)
