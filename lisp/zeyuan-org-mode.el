@@ -27,9 +27,38 @@
          :recursive t
          :publishing-function org-publish-attachment
          )
-        ("org"
-         :components ("org-notes" "org-static"))
-        ))
+         ("org"
+          :components ("org-notes" "org-static"))
+         ("coursera-programming-languages-inherit"
+         :base-directory "~/org/"
+         :recursive t
+         :base-extension "css\\|js"
+         :publishing-directory "~/public_html/cousera-programming-languages/"
+         :publishing-function org-publish-attachment
+         )
+         ("coursera-programming-languages-notes"
+          :base-directory "~/Documents/Code-for-blog/2020/coursera-programming-languages/notes/"
+          :auto-index t
+          :index-filename "sitemap.org"
+          :index-title "Sitemap"
+          :recursive t
+          :base-extension "org"
+          :publishing-directory "~/public_html/cousera-programming-languages/"
+          :publishing-function org-html-publish-to-html
+          :headline-levels 3
+          )
+         ("coursera-programming-languages-static"
+          :base-directory "~/Documents/Code-for-blog/2020/coursera-programming-languages/notes/"
+          :recursive t
+          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+          :publishing-directory "~/public_html/coursera-programming-languages/"
+          :publishing-function org-publish-attachment)
+         ("coursera-programming-languages"
+          :components ("coursera-programming-languages-inherit"
+                       "coursera-programming-languages-notes"
+                       "coursera-programming-languages-static"))
+        )
+      )
 
 ; org-ref configuration
 (setq org-ref-bibliography-notes "~/org/ref/notes.org"

@@ -48,7 +48,8 @@
                   'htmlize
                   'sass-mode
                   'scss-mode
-                  'dtrt-indent)
+                  'dtrt-indent
+                  'sml-mode)
 
 ;; Enable use-package
 (eval-when-compile

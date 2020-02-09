@@ -10,7 +10,7 @@
 ; set custom-file
 (setq custom-file "~/.emacs.d/.emacs-custom.el")
 (require 'f)
-(when (f-exists? (concat user-emacs-directory ".emacs-custom.el")) 
+(when (f-exists? (concat user-emacs-directory ".emacs-custom.el"))
   (load custom-file))
 
 ; use the user's shell environment
@@ -55,6 +55,8 @@
 (require 'emacs.wrap.region.mode)
 (require 'emacs.ess)
 (require 'emacs.dtrt-indent)
+
+(setq-default view-mode t)
 
 (provide 'init)
 ;;; init.el ends here
