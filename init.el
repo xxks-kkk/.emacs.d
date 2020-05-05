@@ -56,7 +56,5 @@
 (require 'emacs.ess)
 (require 'emacs.dtrt-indent)
 
-(setq-default view-mode t)
-
 (provide 'init)
 ;;; init.el ends here
