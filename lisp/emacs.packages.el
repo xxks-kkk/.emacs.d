@@ -1,5 +1,5 @@
 (packages-require 'auto-complete
-                  'cl
+                  'cl-lib
                   'clang-format
                   'cmake-mode
                   'command-log-mode

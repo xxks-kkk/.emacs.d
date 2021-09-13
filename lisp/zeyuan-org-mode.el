@@ -37,7 +37,7 @@
          :publishing-function org-publish-attachment
          )
          ("coursera-programming-languages-notes"
-          :base-directory "~/Documents/Code-for-blog/2020/coursera-programming-languages/notes/"
+          :base-directory "~/projects/Code-for-blog/2020/coursera-programming-languages/notes/"
           :auto-index t
           :index-filename "sitemap.org"
           :index-title "Sitemap"
@@ -48,7 +48,7 @@
           :headline-levels 3
           )
          ("coursera-programming-languages-static"
-          :base-directory "~/Documents/Code-for-blog/2020/coursera-programming-languages/notes/"
+          :base-directory "~/projects/Code-for-blog/2020/coursera-programming-languages/notes/"
           :recursive t
           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
           :publishing-directory "~/public_html/coursera-programming-languages/"
