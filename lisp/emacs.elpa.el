@@ -1,15 +1,16 @@
 ;;; Emacs packages config
 
+
 ;; [EAB] Add and enable MELPA                                                   
 (setq package-archives                                                          
       '(                                                                        
-        ;;("melpa" . "https://melpa.org/packages/")                                
+        ("melpa" . "https://melpa.org/packages/")                                
         ;;("melpa-stable" . "http://stable.melpa.org/packages/")                
-        ("org"       . "https://orgmode.org/elpa/")                           
-        ("gnu"       . "https://elpa.gnu.org/packages/"))                         
-        ;;("marmalade" .  "https://marmalade-repo.org/packages/"))                
-      )                                                                         
-                                                                                
+        ;;("org"       . "https://orgmode.org/elpa/")                           
+        ("gnu"       . "https://elpa.gnu.org/packages/")                         
+        ;;("marmalade" .  "https://marmalade-repo.org/packages/")                
+      ))                                                                         
+
 (package-initialize)
 
 ;; We only run (package-refresh-contents) on first install each time

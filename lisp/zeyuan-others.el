@@ -22,5 +22,7 @@
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
+;; Enable auto-fill-mode
+(add-hook 'text-mode-hook 'auto-fill-mode)
 
 (provide 'zeyuan-others)

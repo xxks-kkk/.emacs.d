@@ -51,7 +51,7 @@
 (require 'emacs.scss.sass)
 (require 'emacs.jinja2)
 (require 'emacs.web.mode)
-(require 'zeyuan-org-mode)
+;(require 'zeyuan-org-mode)
 (require 'emacs.wrap.region.mode)
 (require 'emacs.ess)
 (require 'emacs.dtrt-indent)

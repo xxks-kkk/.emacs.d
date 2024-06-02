@@ -39,8 +39,8 @@
                   'web-mode
                   'haml-mode
                   'wrap-region
-                  'org-plus-contrib
-                  'org-ref
+                  ;;'org-plus-contrib
+                  ;;'org-ref
                   'exec-path-from-shell
                   'ess
                   'fic-mode
