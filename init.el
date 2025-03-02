@@ -48,7 +48,6 @@
 (require 'emacs.format.all)
 (require 'zeyuan-makefile)
 (require 'emacs.fic)
-(require 'emacs.scss.sass)
 (require 'emacs.jinja2)
 (require 'emacs.web.mode)
 ;(require 'zeyuan-org-mode)
