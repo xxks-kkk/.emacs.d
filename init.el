@@ -22,7 +22,6 @@
 (require 'emacs.golden.ratio)
 (require 'emacs.theme)
 (require 'emacs.ui)
-(require 'emacs.auto.complete)
 (require 'emacs.yasnippet)
 (require 'emacs.dumb.jump)
 (require 'setup-helm)
