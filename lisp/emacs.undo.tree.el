@@ -13,4 +13,7 @@
       ([f3] . 'undo-tree-redo)
   ))
 
+;; Prevent undo tree files from polluting your git repo
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+
 (provide 'emacs.undo.tree)
