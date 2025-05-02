@@ -4,8 +4,7 @@
                   'cmake-mode
                   'command-log-mode
                   'company
-                  'color-theme-sanityinc-solarized
-                  'color-theme-sanityinc-tomorrow
+                  'modus-themes
                   'dumb-jump
                   'f
                   'flycheck
