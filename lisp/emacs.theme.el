@@ -1,14 +1,20 @@
 ;; If you don't customize it, this is the theme you get.
 (setq-default custom-enabled-themes '(modus-operandi))
 
-;; Ensure that themes will be applied even if they have not been customized
-(defun reapply-themes ()
-  "Forcibly load the themes listed in `custom-enabled-themes'."
-  (dolist (theme custom-enabled-themes)
-    (unless (custom-theme-p theme)
-      (load-theme theme t)))
-  (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
+(defun my/set-theme-for-frame (frame)
+  "Set the theme for a new frame based on its display type."
+  (with-selected-frame frame
+    (if (display-graphic-p)
+        (load-theme 'modus-operandi t)
+      (load-theme 'modus-vivendi t))))
 
-(add-hook 'after-init-hook 'reapply-themes)
+;; Set theme for initial frame
+(my/set-theme-for-frame (selected-frame))
+
+;; Set theme for subsequent frames
+(add-hook 'after-make-frame-functions #'my/set-theme-for-frame)
+
+
+
 
 (provide 'emacs.theme)
