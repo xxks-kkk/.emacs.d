@@ -16,7 +16,6 @@
                   'helm-descbinds
                   'helm-gtags
                   'helm-projectile
-                  'helm-swoop
                   'highlight-symbol
                   'markdown-mode
                   'paredit
