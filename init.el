@@ -17,6 +17,9 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+; change the scratch buffer to text-mode
+(setq initial-major-mode 'text-mode)
+
 ; load configurations
 (require 'emacs.fill.column.indicator)
 (require 'emacs.golden.ratio)
