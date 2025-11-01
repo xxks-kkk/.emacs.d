@@ -47,6 +47,7 @@
                   'sass-mode
                   'scss-mode
                   'dtrt-indent
+                  'graphviz-dot-mode
                   'sml-mode)
 
 ;; Enable use-package

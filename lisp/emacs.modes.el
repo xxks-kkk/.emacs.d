@@ -5,8 +5,6 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-; use graphviz-dot-mode
-(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
 ; use yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 

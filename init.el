@@ -57,6 +57,7 @@
 (require 'emacs.wrap.region.mode)
 (require 'emacs.ess)
 (require 'emacs.dtrt-indent)
+(require 'emacs.graphviz)
 
 (provide 'init)
 ;;; init.el ends here
