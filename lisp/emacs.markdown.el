@@ -9,4 +9,7 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode)))
 
+(custom-set-variables
+ '(markdown-command "/opt/homebrew/bin/pandoc"))
+
 (provide 'emacs.markdown)
