@@ -48,7 +48,8 @@
                   'scss-mode
                   'dtrt-indent
                   'graphviz-dot-mode
-                  'sml-mode)
+                  'sml-mode
+                  'markdown-toc)
 
 ;; Enable use-package
 (eval-when-compile
