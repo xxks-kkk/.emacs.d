@@ -19,9 +19,13 @@
     ;; Enable helm-gtags-mode in Eshell for the same reason as above
     (add-hook 'eshell-mode-hook 'helm-gtags-mode)
 
-    ;; Enable helm-gtags-mode in languages that GNU Global supports
-    (add-hook 'c-mode-hook 'helm-gtags-mode)
-    (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    ;; Enable helm-gtags-mode in languages that GNU Global supports.
+    ;; C/C++ prefer eglot/LSP for navigation (see zeyuan-cpp.el). Only fall
+    ;; back to helm-gtags in C/C++ when clangd is unavailable; otherwise
+    ;; leave M-. to xref-find-definitions, which eglot powers via clangd.
+    (unless (executable-find "clangd")
+      (add-hook 'c-mode-hook 'helm-gtags-mode)
+      (add-hook 'c++-mode-hook 'helm-gtags-mode))
     (add-hook 'java-mode-hook 'helm-gtags-mode)
     (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
