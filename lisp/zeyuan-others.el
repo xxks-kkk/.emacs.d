@@ -25,4 +25,13 @@
 ;; Enable auto-fill-mode
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
+;; Run the Emacs server, so `emacsclient' works from any shell and so viewers
+;; like Skim can jump back into this Emacs (inverse search).  The guard keeps a
+;; second Emacs instance from complaining about the socket the first one holds;
+;; AUCTeX's TeX-source-correlate-start-server then finds the server already up
+;; and does nothing.
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 (provide 'zeyuan-others)
