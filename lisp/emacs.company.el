@@ -1,15 +1,22 @@
 ;; Company is an auto-completion tool that can use various backends to retrieve possible completions
 ;; It's significantly better maintained than auto-complete, which is one of the main alternatives
 
+;; Emacs puts ispell-completion-at-point in the capf list of text-mode and
+;; everything derived from it (LaTeX-mode included), so idle completion in prose
+;; would fire a dictionary lookup on nearly every word.  Emacs 30 lets us drop
+;; that capf and keep the real backends (AUCTeX macros, RefTeX, dabbrev).
+(setq text-mode-ispell-word-completion nil)
+
 (use-package company
   :ensure t
+  :demand t
   :init
-  (setq company-global-modes t)
+  ;; On everywhere, minus the modes whose own input handling company fights
+  ;; with.  Note this list is matched against major-mode exactly: it does not
+  ;; follow mode derivation, so derived modes must be named individually.
+  (setq company-global-modes '(not comint-mode eshell-mode gud-mode))
   (setq company-tooltip-align-annotations t)
-  ;; Add company-mode to the mode hooks for the list of modes given
-  :hook (
-      ((prog-mode lisp-mode c-mode-common perl-mode python-mode lua-mode sh-mode makefile-mode emacs-lisp-mode rst-mode) . company-mode)
-    )
-)
+  :config
+  (global-company-mode 1))
 
 (provide 'emacs.company)
