@@ -58,6 +58,7 @@
 (require 'emacs.ess)
 (require 'emacs.dtrt-indent)
 (require 'emacs.graphviz)
+(require 'emacs.latex)
 
 (provide 'init)
 ;;; init.el ends here

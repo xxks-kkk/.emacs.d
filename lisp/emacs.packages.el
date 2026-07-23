@@ -49,7 +49,8 @@
                   'dtrt-indent
                   'graphviz-dot-mode
                   'sml-mode
-                  'markdown-toc)
+                  'markdown-toc
+                  'auctex)
 
 ;; Enable use-package
 (eval-when-compile
