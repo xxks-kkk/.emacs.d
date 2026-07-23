@@ -1,5 +1,4 @@
-(packages-require 'auto-complete
-                  'cl-lib
+(packages-require 'cl-lib
                   'clang-format
                   'cmake-mode
                   'command-log-mode
@@ -27,7 +26,6 @@
                   'use-package
                   'yasnippet
                   'yasnippet-snippets
-                  'auto-complete-c-headers
                   'flycheck-pycheckers
                   'format-all
                   'go-mode
