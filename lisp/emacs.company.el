@@ -16,6 +16,14 @@
   ;; follow mode derivation, so derived modes must be named individually.
   (setq company-global-modes '(not comint-mode eshell-mode gud-mode))
   (setq company-tooltip-align-annotations t)
+
+  ;; Keep the case of buffer words.  company-dabbrev downcases every candidate
+  ;; by default (company-dabbrev-downcase is `case-replace', i.e. t) and then
+  ;; leaves the typed prefix untouched (`keep-prefix'), so completing \Depth
+  ;; against \DepthCap in the buffer yields \Depthcap.  Identifiers and LaTeX
+  ;; macros are case-sensitive, so take candidates verbatim and match on case.
+  (setq company-dabbrev-downcase nil
+        company-dabbrev-ignore-case nil)
   :config
   (global-company-mode 1))
 
