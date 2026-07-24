@@ -13,6 +13,15 @@
         reftex-plug-into-AUCTeX t)          ; \ref and \cite completion through RefTeX
   (setq-default TeX-master nil)             ; multi-file documents: ask for the master file
 
+  ; Paragraph readability.  font-latex raises super/subscripts with a `raise'
+  ; display spec, which makes any line carrying one taller than its neighbours;
+  ; scattered through a paragraph that reads as loose, uneven spacing that is
+  ; hard to tell apart from the blank line between paragraphs.  Turn it off, then
+  ; add back a small, *uniform* line-spacing so lines breathe evenly while the
+  ; blank-line paragraph gap still stands out.  line-spacing is buffer-local, so
+  ; set it from the hook to keep it scoped to TeX buffers.
+  (setq font-latex-fontify-script nil)
+
   ; Skim as the PDF viewer.  AUCTeX's builtin "Skim" entry only runs `open -a',
   ; which loses the position, so call Skim's displayline helper by full path
   ; instead: -r reloads the PDF if it is already open, -b draws the highlight
@@ -31,7 +40,8 @@
         outline-minor-mode-highlight 'append)
 
   :hook ((TeX-mode . outline-minor-mode)
-         (TeX-mode . reftex-mode)))
+         (TeX-mode . reftex-mode)
+         (TeX-mode . (lambda () (setq line-spacing 0.15)))))  ; relaxed intra-line gap; tune to taste
 
 ;;; ------------------------------------------------------------------
 ;;; AUCTeX cheat sheet (all keys verified against auctex 14.1.2)
