@@ -77,9 +77,16 @@ Paragraph breaks (blank lines) are preserved; the buffer is not modified."
         (fill-region (point-min) (point-max)))
       (kill-new (buffer-string))
       ; tty Emacs has no interprogram-cut-function, so reach the
-      ; system clipboard through pbcopy
-      (when (and (eq system-type 'darwin) (not (display-graphic-p)))
-        (call-process-region (point-min) (point-max) "pbcopy")))
+      ; system clipboard through an external helper: pbcopy (macOS),
+      ; wl-copy (Wayland), or xclip (X11)
+      (unless (display-graphic-p)
+        (cond ((and (eq system-type 'darwin) (executable-find "pbcopy"))
+               (call-process-region (point-min) (point-max) "pbcopy"))
+              ((and (getenv "WAYLAND_DISPLAY") (executable-find "wl-copy"))
+               (call-process-region (point-min) (point-max) "wl-copy"))
+              ((and (getenv "DISPLAY") (executable-find "xclip"))
+               (call-process-region (point-min) (point-max) "xclip"
+                                    nil nil nil "-selection" "clipboard")))))
     (message "Copied unfilled region to clipboard!")))
 (global-set-key (kbd "M-W") 'copy-unfilled-region)
 
