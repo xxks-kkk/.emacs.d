@@ -64,5 +64,24 @@ With a prefix argument P, isearch for the symbol at point."
 (global-set-key [remap isearch-forward]
                 #'endless/isearch-symbol-with-prefix)
 
+; copy region to clipboard with hard newlines removed, so pasting into
+; Gmail etc. lets the target app do the word-wrapping
+(defun copy-unfilled-region (beg end)
+  "Copy the region to the clipboard with hard newlines removed.
+Paragraph breaks (blank lines) are preserved; the buffer is not modified."
+  (interactive "r")
+  (let ((text (buffer-substring-no-properties beg end)))
+    (with-temp-buffer
+      (insert text)
+      (let ((fill-column most-positive-fixnum))
+        (fill-region (point-min) (point-max)))
+      (kill-new (buffer-string))
+      ; tty Emacs has no interprogram-cut-function, so reach the
+      ; system clipboard through pbcopy
+      (when (and (eq system-type 'darwin) (not (display-graphic-p)))
+        (call-process-region (point-min) (point-max) "pbcopy")))
+    (message "Copied unfilled region to clipboard!")))
+(global-set-key (kbd "M-W") 'copy-unfilled-region)
+
 
 (provide 'zeyuan-key-shortcuts)
