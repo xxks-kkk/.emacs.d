@@ -41,7 +41,16 @@
 
   :hook ((TeX-mode . outline-minor-mode)
          (TeX-mode . reftex-mode)
-         (TeX-mode . (lambda () (setq line-spacing 0.15)))))  ; relaxed intra-line gap; tune to taste
+         (TeX-mode . (lambda () (setq line-spacing 0.15)))    ; relaxed intra-line gap; tune to taste
+
+         ; Keep \ref completion in sync with hand-typed labels.  The in-buffer
+         ; dropdown serves RefTeX's cached document scan, and a \label{...}
+         ; typed by hand (rather than inserted with C-c () stays out of that
+         ; cache until a rescan -- saving alone does not trigger one.  Rescan
+         ; just the saved file on each save so new labels complete right away.
+         ; Buffer-local hook (last arg t) keeps this out of non-TeX buffers.
+         (reftex-mode . (lambda ()
+                          (add-hook 'after-save-hook #'reftex-parse-one nil t)))))
 
 ;;; ------------------------------------------------------------------
 ;;; AUCTeX cheat sheet (all keys verified against auctex 14.1.2)
