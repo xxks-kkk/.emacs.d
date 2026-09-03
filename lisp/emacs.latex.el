@@ -52,6 +52,36 @@
          (reftex-mode . (lambda ()
                           (add-hook 'after-save-hook #'reftex-parse-one nil t)))))
 
+; \cite completion pulls its keys from AUCTeX's cached parse of the .bib
+; file (auto/<bib>.el), and AUCTeX refreshes that cache only when the .bib
+; is saved inside Emacs -- entries added from JabRef never reach it.  So:
+; whenever completion collects cite keys, first re-parse any .bib of this
+; document whose cache has gone stale and re-run its style hook so the new
+; keys are offered.  The check is two file stats per .bib; the re-parse
+; runs only when the .bib is really newer.  Keys *removed* from the .bib
+; linger in the buffer until C-c C-n; only additions matter here.
+(defun my/TeX-refresh-stale-bib-cache (&rest _)
+  "Re-parse this document's .bib files whose auto/ cache is out of date."
+  (when (derived-mode-p 'TeX-mode)
+    (let* ((master-dir (TeX-master-directory))
+           (auto (expand-file-name TeX-auto-local master-dir)))
+      (dolist (bib (directory-files master-dir t "\\.bib\\'"))
+        (let* ((base (file-name-base bib))
+               (el (expand-file-name (concat base ".el") auto)))
+          (when (and (member base TeX-active-styles)
+                     (or (not (file-exists-p el))
+                         (file-newer-than-file-p bib el)))
+            (TeX-auto-generate bib auto)
+            ; Drop the cached hook and its "already active" mark so
+            ; TeX-run-style-hooks reloads the fresh auto/<bib>.el.
+            (setq TeX-style-hook-list
+                  (assoc-delete-all base TeX-style-hook-list))
+            (setq TeX-active-styles (delete base TeX-active-styles))
+            (TeX-run-style-hooks base)))))))
+
+(with-eval-after-load 'latex
+  (advice-add 'LaTeX-bibitem-list :before #'my/TeX-refresh-stale-bib-cache))
+
 ;;; ------------------------------------------------------------------
 ;;; AUCTeX cheat sheet (all keys verified against auctex 14.1.2)
 ;;; ------------------------------------------------------------------
