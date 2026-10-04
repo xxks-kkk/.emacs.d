@@ -60,24 +60,56 @@
 ; keys are offered.  The check is two file stats per .bib; the re-parse
 ; runs only when the .bib is really newer.  Keys *removed* from the .bib
 ; linger in the buffer until C-c C-n; only additions matter here.
+;
+; The parse happens in a throwaway buffer rather than through
+; TeX-auto-generate: that function find-file-noselects the .bib and then
+; kills the buffer, which closes (or prompts about) a .bib you have open.
+; The cache therefore mirrors the .bib *on disk*; unsaved edits to a .bib
+; buffer reach it when that buffer is saved, as AUCTeX already arranges.
+; Errors are demoted to a message so a failed refresh can never take the
+; completion dropdown down with it.
 (defun my/TeX-refresh-stale-bib-cache (&rest _)
   "Re-parse this document's .bib files whose auto/ cache is out of date."
   (when (derived-mode-p 'TeX-mode)
-    (let* ((master-dir (TeX-master-directory))
-           (auto (expand-file-name TeX-auto-local master-dir)))
-      (dolist (bib (directory-files master-dir t "\\.bib\\'"))
-        (let* ((base (file-name-base bib))
-               (el (expand-file-name (concat base ".el") auto)))
-          (when (and (member base TeX-active-styles)
-                     (or (not (file-exists-p el))
-                         (file-newer-than-file-p bib el)))
-            (TeX-auto-generate bib auto)
-            ; Drop the cached hook and its "already active" mark so
-            ; TeX-run-style-hooks reloads the fresh auto/<bib>.el.
-            (setq TeX-style-hook-list
-                  (assoc-delete-all base TeX-style-hook-list))
-            (setq TeX-active-styles (delete base TeX-active-styles))
-            (TeX-run-style-hooks base)))))))
+    (with-demoted-errors "my/TeX-refresh-stale-bib-cache: %S"
+      (let* ((master-dir (TeX-master-directory))
+             (auto (expand-file-name TeX-auto-local master-dir)))
+        (dolist (bib (directory-files master-dir t "\\.bib\\'"))
+          (let* ((base (file-name-base bib))
+                 (el (expand-file-name (concat base ".el") auto)))
+            ; Match on the \bibliography list, not on TeX-active-styles: a
+            ; .bib that shares its name with the document class (acmart.bib
+            ; next to acmart.cls) is "active" as the class, and parsing it
+            ; would overwrite the class's cache with a list of bib keys.
+            (when (and (assoc base (LaTeX-bibliography-list))
+                       (or (not (file-exists-p el))
+                           (file-newer-than-file-p bib el)))
+              ; TeX-auto-store writes the cache file but does not create its
+              ; directory, and auto/ only appears once the .tex file has been
+              ; saved in Emacs with TeX-auto-save on.
+              (make-directory auto t)
+              (with-temp-buffer
+                (insert-file-contents bib)
+                ; TeX-auto-store names the style after the visited file, and
+                ; bibtex-mode (via AUCTeX's BibTeX-auto-store hook) switches
+                ; the parser to the BibTeX regexps and the :bibtex dialect.
+                (setq buffer-file-name bib)
+                (bibtex-mode)
+                (TeX-auto-store el)
+                (set-buffer-modified-p nil))
+              ; Register the fresh hook from the file just written, then
+              ; re-run it.  Do not leave the lookup to TeX-run-style-hooks:
+              ; for a plain style name it searches the relative "auto" entry
+              ; of TeX-style-path against default-directory, so from a file
+              ; in a subdirectory (sections/prelim.tex with the master one
+              ; level up) it misses <master>/auto/<bib>.el and records an
+              ; empty "already searched" entry in the global
+              ; TeX-style-hook-list, after which no buffer of the document
+              ; gets the keys until Emacs restarts.
+              (TeX-unload-style base)
+              (TeX-load-style-file (file-name-sans-extension el))
+              (setq TeX-active-styles (delete base TeX-active-styles))
+              (TeX-run-style-hooks base))))))))
 
 (with-eval-after-load 'latex
   (advice-add 'LaTeX-bibitem-list :before #'my/TeX-refresh-stale-bib-cache))
